@@ -21,7 +21,7 @@ Bouwt voor een ondernemer in één sessie een complete, AI-vriendelijke Second B
 3. Starter-bestanden gevuld met de context die uit de vragen-flow is verzameld
 4. Een heldere actielijst van wat ze zelf nog moeten invullen om de OS écht waardevol te maken
 
-De skill is ontworpen op basis van een werkend voorbeeld (Iwan-OS) waar een solopreneur 4 bedrijven mee runt. De structuur is bewezen: scheiding tussen "het bedrijf" en "de mens", standaard-afdelingen die ondernemerstaal volgen, en automatische audit-trails (changelogs, dailies) die de AI helpen consistent te werken.
+De skill is ontworpen op basis van een werkende referentie-implementatie waar een solopreneur meerdere bedrijven mee runt. De structuur is bewezen: scheiding tussen "het bedrijf" en "de mens", standaard-afdelingen die ondernemerstaal volgen, en automatische audit-trails (changelogs, dailies) die de AI helpen consistent te werken.
 
 ## Visuele Flow
 
@@ -62,7 +62,7 @@ Activeer deze skill wanneer een gebruiker:
 - Een persoonlijke kennisbank, vault of Second Brain wil opzetten
 - Hun bedrijf of bedrijven wil structureren in een mappensysteem dat AI-vriendelijk is
 - Vraagt hoe ze moeten beginnen met Claude Code, Obsidian, of een vergelijkbaar systeem
-- Een werkend voorbeeld (zoals Iwan-OS) wil overnemen voor hun eigen situatie
+- Een werkende referentie-implementatie wil overnemen voor hun eigen situatie
 
 Triggert NIET wanneer:
 - De gebruiker een specifieke skill of tool wil bouwen (gebruik dan `skill-creator`)

@@ -6,7 +6,7 @@ Alle starter-bestanden die de skill aanmaakt. Elke template heeft duidelijke pla
 
 - `{{naam}}` : voornaam van de gebruiker
 - `{{Bedrijf}}` : exacte bedrijfsnaam (Hoofdletter)
-- `{{bedrijf-slug}}` : kleine letters, koppeltekens (bv. "fit-in-finance")
+- `{{bedrijf-slug}}` : kleine letters, koppeltekens (bv. "mijn-bedrijf-bv")
 - `{{datum}}` : ISO-formaat YYYY-MM-DD
 - `{{jaar}}` : YYYY
 - `{{bedrijven-lijst}}` : door komma's gescheiden lijst van bedrijfsnamen
