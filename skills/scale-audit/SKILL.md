@@ -135,35 +135,61 @@ Bied per voorgestelde n.v.t.-markering een keuze: "Akkoord op n.v.t.", "Toch che
 
 **Belangrijk**: dit is een voorstel, geen automatisch besluit. De gebruiker bepaalt.
 
-### Stap 5: Rapport schrijven
+### Stap 5: Rapport schrijven (markdown EN HTML)
 
-Genereer het rapport volgens `references/report-template.md`. Sla op in `[scope]/Directie/Research/YYYY-MM-DD - SCALE Audit.md` (of bij `Persoonlijk/` in `Persoonlijk/Research/YYYY-MM-DD - SCALE Audit.md`).
+Genereer het rapport in **twee formaten** parallel, omdat ze elk een andere rol vervullen:
 
-Het rapport heeft:
+- **Markdown** (`YYYY-MM-DD - SCALE Audit.md`) is de bron-van-waarheid die in de vault leeft, version control vriendelijk, en in elke editor te lezen.
+- **HTML** (`YYYY-MM-DD - SCALE Audit.html`) is een visueel dashboard met progress bars, kaart-layout en inklapbare detail-tabellen, ideaal om in een browser te bekijken of te delen.
+
+Beide opslaan op dezelfde plek: `[scope]/Directie/Research/` (of `Persoonlijk/Research/` bij persoonlijke scope).
+
+Het rapport bevat in beide formaten:
 1. **Header**: scope, datum, vergelijking met vorige audit indien beschikbaar
-2. **Visuele samenvatting**: totale statusbalk + per-laag-balken
-3. **Top 3 prioriteiten**: gekozen op basis van impact (welke laag is het meest achter, welke check geeft het grootste fundament voor andere checks)
-4. **Detail per laag**: complete lijst met status per item + korte motivatie waar relevant
-5. **Vervolgskills**: per gat een aanbevolen skill (bv. `tone-of-voice` voor ontbrekende ToV)
+2. **Hero/totaalscore**: groot percentage + balk + fractie (X van Y)
+3. **Per-laag-overzicht**: per laag balk, percentage, fractie en "te gaan"
+4. **Cross-cutting domeinen**: zelfde format als per-laag
+5. **Belangrijkste inzicht**: één alinea over het patroon dat je ziet
+6. **Top 3 prioriteiten**: gekozen op basis van impact
+7. **Detail per laag**: complete lijst met status per item + motivatie
+8. **Vervolgskills**: per gat een aanbevolen skill of actie
 
-#### Statusbalk-format
+#### Notatie: percentage én aantal
 
-Gebruik 20 Unicode-blokken voor de hoofdscore en per-laag-balken. Volle blokken zijn `█`, lege zijn `░`. Bereken het aantal volle blokken als `round(percentage / 5)` (elke 5% is 1 blok).
+Toon altijd **beide** zodat de gebruiker weet hoeveel werk nog nodig is:
+- Hoofdscore: `43% (20,0 van 47 punten)`
+- Per laag: `54% (6,5 van 12) · nog 5,5 te gaan`
+
+Gebruik komma's als decimaalteken (Nederlands), niet punten. Bij halve punten (vanwege ⚠️ = 0,5) toon je dat ook als komma-getal.
+
+#### Statusbalk-format (markdown)
+
+Voor de markdown-versie: 20 Unicode-blokken voor de hoofdscore, 10 voor per-laag-balken. Volle blokken zijn `█`, lege zijn `░`. Bereken het aantal volle blokken als `floor(percentage / 5)` voor 20-blok en `floor(percentage / 10)` voor 10-blok.
 
 ```
-████████████░░░░░░░░ 60%
+████████░░░░░░░░░░░░ 43% — 20,0 van 47
 ```
 
-Per laag in een tabel, met een compactere balk (10 blokken) voor uitlijning:
-
+Per laag in een tabel:
 ```
-| Laag | Status | Balk |
-|---|---|---|
-| S Structure | 80% ✅ | ████████░░ |
-| C Collect   | 28% ⚠️ | ██░░░░░░░░ |
+| Laag | Balk | Behaald | Te gaan | Status |
+|---|---|---|---|---|
+| S Structure | `█████░░░░░` 54% | 6,5 van 12 | 5,5 | ⚠️ |
 ```
 
-Voor de exacte mapping tussen percentage en blokken, zie `references/report-template.md`.
+#### Statusbalk-format (HTML)
+
+Voor de HTML-versie: gebruik CSS-progress-bars. De template `references/report-template.html` definieert vier kleur-categorieën:
+- `s-good` (≥80%): groen
+- `s-decent` (50-79%): coral/peach
+- `s-warn` (25-49%): amber
+- `s-danger` (0-24%): rood
+
+De hoofdscore krijgt een prominente coral gradient bar (Upscailed-merk). Per-laag-cards hebben kleinere bars in de juiste status-kleur.
+
+#### HTML-genereren
+
+Lees `references/report-template.html` als startpunt en vervang de placeholder-data met de actuele audit-data. De template is self-contained (inline CSS, geen externe dependencies behalve eventueel system fonts), zodat de HTML in elke browser opent zonder netwerkverbinding.
 
 ### Stap 6: Scheduled task voorstellen
 

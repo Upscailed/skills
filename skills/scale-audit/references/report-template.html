@@ -1,0 +1,520 @@
+<!--
+  HTML-template voor SCALE Audit-rapporten.
+
+  De skill genereert per audit een HTML-versie naast de markdown-versie.
+  Gebruik deze template als startpunt: vervang alle {{placeholders}} met
+  de actuele data, en herhaal de detail-tabel-secties voor elke laag.
+
+  De template is self-contained (inline CSS, geen externe afhankelijkheden
+  behalve system fonts), zodat de HTML in elke browser opent zonder
+  netwerkverbinding nodig te hebben.
+
+  Placeholder-conventie:
+  - {{scope}}             : exacte scope-naam (bv. "Fit In Finance" of "Persoonlijk")
+  - {{datum}}             : YYYY-MM-DD
+  - {{first-or-iter}}     : "Eerste audit" of "Audit-iteratie X" of "Vervolg op DATUM"
+  - {{TOT.pct}}           : totaal-percentage als heel getal (bv. 43)
+  - {{TOT.behaald}}       : totaal behaalde punten (bv. "20,0")
+  - {{TOT.max}}           : totaal max punten (bv. 47)
+  - {{TOT.tegaan}}        : punten te gaan (bv. 27)
+  - {{TOT.nvt}}           : aantal op n.v.t.
+  - {{TOT.status-icoon}}  : ✅ / 🟢 / ⚠️ / ❌
+  - {{TOT.status-tekst}}  : "Op orde" / "Goed bezig" / "Aandacht nodig" / "Achter"
+  - {{LAAG.S.pct}}, {{LAAG.S.behaald}}, {{LAAG.S.max}}, {{LAAG.S.tegaan}}, {{LAAG.S.icoon}}, {{LAAG.S.kleurklasse}}
+    (idem voor C, A, L, E, J, M, V)
+    kleurklasse is een van: s-good, s-decent, s-warn, s-danger
+    op basis van pct: <25 = s-danger, 25-49 = s-warn, 50-79 = s-decent, >=80 = s-good
+  - {{INSIGHT.tekst}}     : één alinea hoofdinzicht
+  - {{PRIO.N.titel}}      : titel prioriteit N (1, 2, 3)
+  - {{PRIO.N.wat}}        : wat te doen
+  - {{PRIO.N.waarom}}     : waarom nu
+  - {{PRIO.N.tijd}}       : geschatte tijd
+  - {{PRIO.N.skill}}      : aanbevolen skill of actie
+
+  Detail-tabellen: kopieer het <details>-blok per laag en vul met de
+  actuele check-items.
+-->
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SCALE Audit · {{scope}} · {{datum}}</title>
+  <style>
+    :root {
+      --coral-500: #FF5B3E;
+      --coral-600: #E8452C;
+      --coral-400: #FF7A5F;
+      --coral-100: #FFE8E1;
+      --peach-500: #FFB678;
+      --peach-100: #FFF1E3;
+      --ink-900: #0F172A;
+      --ink-700: #334155;
+      --ink-500: #64748B;
+      --ink-300: #94A3B8;
+      --canvas: #FFFBF7;
+      --surface: #FFFFFF;
+      --surface-warm: #FDF6F0;
+      --border: #F1E4D8;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #DC2626;
+      --grad-main: linear-gradient(135deg, #FF5B3E 0%, #FFB678 100%);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+      background: var(--canvas);
+      color: var(--ink-700);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    .header { margin-bottom: 32px; }
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--ink-500);
+      font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace;
+      letter-spacing: 0.02em;
+    }
+    .header h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--ink-900);
+      margin: 8px 0 12px;
+    }
+    .header h1 .accent {
+      background: var(--grad-main);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .header .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--ink-500);
+      font-family: ui-monospace, monospace;
+    }
+    .header .meta span strong { color: var(--ink-700); }
+
+    .hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+      margin: 24px 0 32px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(255,91,62,0.08), transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--coral-500);
+      font-family: ui-monospace, monospace;
+    }
+    .hero-percentage {
+      font-size: clamp(64px, 10vw, 112px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: var(--grad-main);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 8px 0 4px;
+    }
+    .hero-fraction {
+      font-size: 18px;
+      color: var(--ink-700);
+      font-weight: 600;
+    }
+    .hero-fraction .togo {
+      color: var(--ink-500);
+      font-weight: 400;
+    }
+    .hero-bar-wrap {
+      margin-top: 28px;
+      height: 16px;
+      background: var(--coral-100);
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.06);
+    }
+    .hero-bar {
+      height: 100%;
+      background: var(--grad-main);
+      border-radius: 999px;
+      transition: width 0.6s ease;
+    }
+    .hero-status {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--coral-100);
+      color: var(--coral-600);
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--coral-400);
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink-900);
+      margin: 48px 0 16px;
+    }
+    h2 .accent {
+      background: var(--grad-main);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .grid-3 {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -16px rgba(255, 91, 62, 0.18); }
+
+    .card-laag .laag-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: var(--coral-100);
+      color: var(--coral-500);
+      font-weight: 800;
+      font-size: 16px;
+      font-family: ui-monospace, monospace;
+    }
+    .card-laag .titel {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin-top: 14px;
+      margin-bottom: 4px;
+    }
+    .card-laag .pct {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--ink-900);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin: 8px 0;
+    }
+    .card-laag .pct .icoon { font-size: 22px; margin-left: 4px; }
+    .card-laag .fraction {
+      font-size: 13px;
+      color: var(--ink-500);
+      font-family: ui-monospace, monospace;
+    }
+    .card-laag .fraction strong { color: var(--ink-700); }
+
+    .progress-bar {
+      margin-top: 12px;
+      height: 8px;
+      background: var(--surface-warm);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.6s ease;
+    }
+    .progress-fill.s-good { background: linear-gradient(135deg, var(--success), #34D399); }
+    .progress-fill.s-decent { background: linear-gradient(135deg, var(--coral-400), var(--peach-500)); }
+    .progress-fill.s-warn { background: linear-gradient(135deg, var(--warning), #FCD34D); }
+    .progress-fill.s-danger { background: linear-gradient(135deg, var(--danger), #F87171); }
+
+    .prio-list { display: grid; gap: 16px; margin-top: 16px; }
+    .prio {
+      background: linear-gradient(135deg, rgba(255,91,62,0.04), rgba(255,182,120,0.06));
+      border: 1px solid var(--coral-400);
+      border-left: 4px solid var(--coral-500);
+      border-radius: 14px;
+      padding: 24px 28px;
+      position: relative;
+    }
+    .prio-num {
+      position: absolute;
+      top: 24px; left: -2px;
+      width: 36px; height: 36px;
+      background: var(--grad-main);
+      color: white;
+      font-weight: 800;
+      font-size: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(-50%);
+      box-shadow: 0 4px 12px rgba(255, 91, 62, 0.4);
+    }
+    .prio h3 { font-size: 18px; font-weight: 800; color: var(--ink-900); margin: 0 0 6px 0; padding-left: 32px; letter-spacing: -0.015em; }
+    .prio dl { margin: 14px 0 0 32px; display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; font-size: 14px; }
+    .prio dt { color: var(--ink-500); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; padding-top: 2px; }
+    .prio dd { margin: 0; color: var(--ink-700); }
+
+    details.laag-detail {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin: 12px 0;
+      overflow: hidden;
+    }
+    details.laag-detail summary {
+      cursor: pointer;
+      padding: 16px 20px;
+      font-weight: 700;
+      color: var(--ink-900);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    details.laag-detail summary::-webkit-details-marker { display: none; }
+    details.laag-detail summary::after {
+      content: "+";
+      width: 24px; height: 24px;
+      background: var(--coral-100);
+      color: var(--coral-500);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    details[open].laag-detail summary::after { content: "−"; }
+    details.laag-detail .summary-meta {
+      display: flex; gap: 12px; align-items: center;
+      font-family: ui-monospace, monospace;
+      font-size: 13px;
+      color: var(--ink-500);
+      font-weight: 500;
+    }
+    details.laag-detail table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    details.laag-detail th, details.laag-detail td {
+      padding: 10px 16px; text-align: left;
+      border-top: 1px solid var(--border); vertical-align: top;
+    }
+    details.laag-detail th {
+      background: var(--surface-warm); font-weight: 700;
+      color: var(--ink-900); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    details.laag-detail td.code {
+      font-family: ui-monospace, monospace; font-weight: 600;
+      color: var(--coral-600); width: 50px;
+    }
+    details.laag-detail td.status { font-size: 18px; text-align: center; width: 50px; }
+
+    .insight {
+      background: var(--ink-900);
+      color: var(--canvas);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin: 32px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .insight::before {
+      content: "";
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(255,91,62,0.4), transparent 70%);
+      filter: blur(40px);
+    }
+    .insight-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--coral-400);
+      font-family: ui-monospace, monospace; position: relative;
+    }
+    .insight p {
+      font-size: 16px; line-height: 1.6; margin: 8px 0 0 0;
+      color: rgba(255,255,255,0.9); position: relative;
+    }
+    .insight strong { color: var(--coral-400); }
+
+    .cta {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 40px;
+    }
+    .cta h3 { margin: 0 0 12px 0; font-size: 18px; color: var(--ink-900); font-weight: 700; }
+    .cta ol { margin: 0; padding-left: 20px; }
+    .cta ol li { margin-bottom: 6px; }
+    .cta code {
+      background: var(--surface-warm); padding: 2px 8px; border-radius: 6px;
+      font-size: 13px; color: var(--coral-600); border: 1px solid var(--border);
+    }
+
+    .footer {
+      margin-top: 60px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--ink-500);
+      text-align: center; font-family: ui-monospace, monospace;
+    }
+
+    @media print {
+      body { background: white; }
+      .hero::before, .insight::before { display: none; }
+      details.laag-detail[open] { page-break-inside: avoid; }
+      details.laag-detail { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="breadcrumb">{{breadcrumb}}</div>
+      <h1>SCALE Audit <span class="accent">Rapport</span></h1>
+      <div class="meta">
+        <span><strong>Bedrijf:</strong> {{scope}}</span>
+        <span><strong>Datum:</strong> {{datum}}</span>
+        <span><strong>Type:</strong> {{first-or-iter}}</span>
+        <span><strong>Skill:</strong> scale-audit v1.0.0</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-label">Compleetheid totaal</div>
+      <div class="hero-percentage">{{TOT.pct}}%</div>
+      <div class="hero-fraction">{{TOT.behaald}} van {{TOT.max}} punten behaald <span class="togo">· nog {{TOT.tegaan}} punten te gaan · {{TOT.nvt}} op n.v.t.</span></div>
+      <div class="hero-bar-wrap" aria-label="Compleetheid {{TOT.pct}}%">
+        <div class="hero-bar" style="width: {{TOT.pct}}%"></div>
+      </div>
+      <div class="hero-status">{{TOT.status-icoon}} {{TOT.status-tekst}}</div>
+    </section>
+
+    <section class="insight">
+      <div class="insight-label">Belangrijkste inzicht</div>
+      <p>{{INSIGHT.tekst}}</p>
+    </section>
+
+    <h2>Per <span class="accent">SCALE-laag</span></h2>
+    <div class="grid">
+      <!-- Herhaal dit blok voor elke laag (S, C, A, L, E). Voorbeeld voor S: -->
+      <div class="card card-laag">
+        <span class="laag-letter">S</span>
+        <div class="titel">Structure</div>
+        <div class="pct">{{LAAG.S.pct}}%<span class="icoon">{{LAAG.S.icoon}}</span></div>
+        <div class="fraction"><strong>{{LAAG.S.behaald}} van {{LAAG.S.max}}</strong> · nog {{LAAG.S.tegaan}}</div>
+        <div class="progress-bar"><div class="progress-fill {{LAAG.S.kleurklasse}}" style="width: {{LAAG.S.pct}}%"></div></div>
+      </div>
+      <!-- ... idem voor C, A, L, E -->
+    </div>
+
+    <h2>Cross-cutting <span class="accent">domeinen</span></h2>
+    <div class="grid-3">
+      <!-- Herhaal dit blok voor J, M, V -->
+      <div class="card card-laag">
+        <span class="laag-letter">J</span>
+        <div class="titel">Juridisch</div>
+        <div class="pct">{{LAAG.J.pct}}%<span class="icoon">{{LAAG.J.icoon}}</span></div>
+        <div class="fraction"><strong>{{LAAG.J.behaald}} van {{LAAG.J.max}}</strong> · nog {{LAAG.J.tegaan}}</div>
+        <div class="progress-bar"><div class="progress-fill {{LAAG.J.kleurklasse}}" style="width: {{LAAG.J.pct}}%"></div></div>
+      </div>
+      <!-- ... idem voor M, V -->
+    </div>
+
+    <h2>Top <span class="accent">3 prioriteiten</span> komende maand</h2>
+    <div class="prio-list">
+      <!-- Herhaal voor elke prioriteit (1, 2, 3) -->
+      <div class="prio">
+        <div class="prio-num">1</div>
+        <h3>{{PRIO.1.titel}}</h3>
+        <dl>
+          <dt>Wat</dt><dd>{{PRIO.1.wat}}</dd>
+          <dt>Waarom nu</dt><dd>{{PRIO.1.waarom}}</dd>
+          <dt>Tijd</dt><dd>{{PRIO.1.tijd}}</dd>
+          <dt>Skill</dt><dd>{{PRIO.1.skill}}</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h2>Detail <span class="accent">per laag</span></h2>
+
+    <!--
+      Voor elke laag: één <details>-blok met de checks.
+      Voorbeeld (vul rijen aan met de actuele check-data):
+    -->
+    <details class="laag-detail">
+      <summary>Laag S, Structure <div class="summary-meta"><span>{{LAAG.S.pct}}%</span><span>{{LAAG.S.behaald}} van {{LAAG.S.max}}</span></div></summary>
+      <table>
+        <thead><tr><th>#</th><th>Check</th><th></th><th>Toelichting</th></tr></thead>
+        <tbody>
+          <!-- Per check: -->
+          <tr>
+            <td class="code">{{check-id}}</td>
+            <td>{{check-naam}}</td>
+            <td class="status">{{icoon}}</td>
+            <td>{{toelichting}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </details>
+
+    <!-- Herhaal het <details>-blok voor C, A, L, E, Juridisch, Marketing, Sales -->
+
+    <div class="cta">
+      <h3>Maandelijkse scheduled task</h3>
+      <p>Wil je deze audit elke maand automatisch laten draaien? Drie opties:</p>
+      <ol>
+        <li><strong>Maandelijks</strong> (1ste van de maand om 10:00) <em>aanbevolen</em>, cron <code>0 10 1 * *</code></li>
+        <li><strong>Per kwartaal</strong> (1 jan, 1 apr, 1 jul, 1 okt om 10:00), cron <code>0 10 1 1,4,7,10 *</code></li>
+        <li><strong>Geen scheduled task</strong>, handmatig draaien wanneer gewenst</li>
+      </ol>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--ink-500);">Output blijft naar <code>{{output-pad-md}}</code> en <code>{{output-pad-html}}</code>.</p>
+    </div>
+
+    <div class="footer">
+      Gegenereerd door de <strong>scale-audit</strong> skill van Upscailed · v1.0.0
+    </div>
+  </div>
+</body>
+</html>

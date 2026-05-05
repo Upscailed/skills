@@ -61,31 +61,31 @@ totaal-percentage: {{X}}
 ## Compleetheid totaal
 
 ```
-{{statusbalk-20}} {{X}}%
+{{statusbalk-20}} {{X}}% — {{behaald}} van {{max}}
 ```
 
-**Score:** {{X}}% ({{behaalde-punten}} van {{totaal-punten}} punten, {{nvt-aantal}} op n.v.t.)
+**Score:** {{X}}% ({{behaald}} van {{max}} punten behaald, {{te-gaan}} punten te gaan, {{nvt-aantal}} op n.v.t.)
 **Status:** {{status-icoon}} {{status-tekst}}
 
 ---
 
 ## Per laag
 
-| Laag | Score | Status | Behaald |
-|---|---|---|---|
-| **S** Structure | `{{balk-10}}` {{X}}% | {{icoon}} | {{behaald}}/{{max}} |
-| **C** Collect | `{{balk-10}}` {{X}}% | {{icoon}} | {{behaald}}/{{max}} |
-| **A** Analyze | `{{balk-10}}` {{X}}% | {{icoon}} | {{behaald}}/{{max}} |
-| **L** Leverage | `{{balk-10}}` {{X}}% | {{icoon}} | {{behaald}}/{{max}} |
-| **E** Engineer | `{{balk-10}}` {{X}}% | {{icoon}} | {{behaald}}/{{max}} |
+| Laag | Balk | Behaald | Te gaan | Status |
+|---|---|---|---|---|
+| **S** Structure | `{{balk-10}}` {{X}}% | {{behaald}} van {{max}} | {{te-gaan}} | {{icoon}} |
+| **C** Collect | `{{balk-10}}` {{X}}% | {{behaald}} van {{max}} | {{te-gaan}} | {{icoon}} |
+| **A** Analyze | `{{balk-10}}` {{X}}% | {{behaald}} van {{max}} | {{te-gaan}} | {{icoon}} |
+| **L** Leverage | `{{balk-10}}` {{X}}% | {{behaald}} van {{max}} | {{te-gaan}} | {{icoon}} |
+| **E** Engineer | `{{balk-10}}` {{X}}% | {{behaald}} van {{max}} | {{te-gaan}} | {{icoon}} |
 
 ## Cross-cutting domeinen
 
-| Domein | Score | Status | Behaald |
-|---|---|---|---|
-| Juridisch | `{{balk-10}}` {{X}}% | {{icoon}} | {{behaald}}/{{max}} |
-| Marketing-aanwezigheid | `{{balk-10}}` {{X}}% | {{icoon}} | {{behaald}}/{{max}} |
-| Sales-systeem | `{{balk-10}}` {{X}}% | {{icoon}} | {{behaald}}/{{max}} |
+| Domein | Balk | Behaald | Te gaan | Status |
+|---|---|---|---|---|
+| Juridisch | `{{balk-10}}` {{X}}% | {{behaald}} van {{max}} | {{te-gaan}} | {{icoon}} |
+| Marketing-aanwezigheid | `{{balk-10}}` {{X}}% | {{behaald}} van {{max}} | {{te-gaan}} | {{icoon}} |
+| Sales-systeem | `{{balk-10}}` {{X}}% | {{behaald}} van {{max}} | {{te-gaan}} | {{icoon}} |
 
 ---
 
