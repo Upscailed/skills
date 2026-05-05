@@ -64,4 +64,4 @@ Heb je een suggestie of verbetering? Open een [Issue](https://github.com/Upscail
 
 Upscailed helpt MKB-ondernemers schalen met AI. Het [SCALE-framework](https://upscailed.nl) brengt bedrijven in vijf stappen van inzicht naar impact. Deze skills-bibliotheek is een onderdeel van die methodiek: kleine, herbruikbare bouwstenen die je AI-systeem direct slimmer maken.
 
-Meer weten? [upscailed.nl](https://upscailed.nl) of mail [hello@upscailed.org](mailto:hello@upscailed.org).
+Meer weten? [upscailed.nl](https://upscailed.nl) of mail [hello@upscailed.nl](mailto:hello@upscailed.nl).

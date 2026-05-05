@@ -2,7 +2,7 @@
 
 ## Hoe een security-issue rapporteren
 
-Vond je een kwetsbaarheid in een skill, een gevaarlijke instructie, een potentieel command-injection-risico in een script, of een credential die per ongeluk in deze repo terecht is gekomen? Stuur dan een mail naar **hello@upscailed.org** met:
+Vond je een kwetsbaarheid in een skill, een gevaarlijke instructie, een potentieel command-injection-risico in een script, of een credential die per ongeluk in deze repo terecht is gekomen? Stuur dan een mail naar **hello@upscailed.nl** met:
 
 - Een korte beschrijving van het issue
 - Welke skill of welk bestand het betreft
