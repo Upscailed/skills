@@ -5,7 +5,7 @@ description: "Voert een volledige compleetheids-audit uit op een bedrijf of map 
 category: operations
 tags: [audit, scale-framework, compleetheid, voortgang, gap-analyse, ondernemerschap]
 estimatedTime: "10-25 minuten"
-version: "1.0.0"
+version: "1.0.2"
 author: Upscailed
 license: MIT
 ---
