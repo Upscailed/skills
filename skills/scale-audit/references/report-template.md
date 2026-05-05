@@ -2,6 +2,13 @@
 
 Het format voor het audit-rapport dat de skill aan het eind genereert. Sla op als `{scope}/Directie/Research/YYYY-MM-DD - SCALE Audit.md` (of bij `Persoonlijk/` in `Persoonlijk/Research/YYYY-MM-DD - SCALE Audit.md`).
 
+## Getalformatting (belangrijk voor leesbaarheid)
+
+- Gebruik komma als decimaalteken: `6,5` niet `6.5`
+- Toon decimaal **alleen als hij betekenisvol is**: `6` in plaats van `6,0`, `20` in plaats van `20,0`
+- ⚠️-checks tellen voor 0,5 punten, dus halve scores ontstaan vanzelf
+- Geldt voor zowel "behaald" als "te gaan"-cijfers
+
 ## Statusbalk-mapping
 
 20 blokken voor de hoofdscore. Bereken aantal volle blokken: `floor(percentage / 5)`. Vul aan met lege blokken tot 20 totaal.

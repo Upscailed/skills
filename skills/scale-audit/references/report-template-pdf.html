@@ -1,0 +1,584 @@
+<!--
+  PDF-template voor SCALE Audit-rapporten in A4 landscape.
+
+  Verschil met report-template.html:
+  - @page A4 landscape met print-margins
+  - Vier pagina's met smart page-breaks
+  - Detail-tabellen zijn altijd uitgeklapt (geen <details>)
+  - Geen hover-states (PDF is statisch)
+  - Compactere typografie (10.5pt body)
+  - print-color-adjust: exact om kleuren door te trekken
+
+  Gebruik:
+  1. Vervang alle {{placeholders}} met de actuele audit-data
+  2. Sla op als tijdelijke file (bv. /tmp/audit-pdf.html of als verborgen
+     .scale-audit-pdf-source.html in de scope-folder)
+  3. Converteer naar PDF via scripts/html-to-pdf.sh
+  4. Verwijder de tijdelijke HTML-file na PDF-generatie
+
+  Pagina-indeling:
+  - Pagina 1: Cover + Hero + Insight + 5 SCALE-cards + 3 cross-cutting cards
+  - Pagina 2: Top 3 prioriteiten (full page, 3 kolommen)
+  - Pagina 3: Detail Laag S (12 items) + Laag C (7 items)
+  - Pagina 4: Detail Laag A + L + E + Cross-cutting + Scheduled task voorstel
+
+  Bij meer dan 4 pagina's nodig: page-break-after: always op extra wrappers
+  toevoegen, of detail-tabellen herverdelen.
+
+  Placeholder-conventie: zelfde als report-template.html.
+-->
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <title>SCALE Audit · {{scope}} · {{datum}}</title>
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 11mm 13mm;
+    }
+
+    :root {
+      --coral-500: #FF5B3E;
+      --coral-600: #E8452C;
+      --coral-400: #FF7A5F;
+      --coral-100: #FFE8E1;
+      --peach-500: #FFB678;
+      --peach-100: #FFF1E3;
+      --ink-900: #0F172A;
+      --ink-700: #334155;
+      --ink-500: #64748B;
+      --ink-300: #94A3B8;
+      --canvas: #FFFBF7;
+      --surface: #FFFFFF;
+      --surface-warm: #FDF6F0;
+      --border: #F1E4D8;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #DC2626;
+      --grad-main: linear-gradient(135deg, #FF5B3E 0%, #FFB678 100%);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+      color: var(--ink-700);
+      line-height: 1.45;
+      font-size: 10.5pt;
+      background: white;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page { page-break-after: always; break-after: page; }
+    .page:last-child { page-break-after: auto; }
+
+    /* Critical: deze blokken mogen nooit door page-break heen worden gesneden */
+    .no-break, .card, .prio, .laag-detail, table, .hero, .insight, .cta-block {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 6mm;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 7mm;
+    }
+    .page-header .left {
+      font-size: 9.5pt;
+      font-weight: 800;
+      color: var(--ink-900);
+      letter-spacing: -0.01em;
+    }
+    .page-header .left .accent { color: var(--coral-500); }
+    .page-header .right {
+      font-size: 8pt;
+      color: var(--ink-500);
+      font-family: ui-monospace, SFMono-Regular, monospace;
+    }
+
+    .cover-title {
+      font-size: 28pt;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      color: var(--ink-900);
+      margin: 2mm 0 2mm;
+    }
+    .cover-title .accent {
+      background: var(--grad-main);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .cover-meta {
+      font-size: 9pt;
+      color: var(--ink-500);
+      font-family: ui-monospace, monospace;
+      margin-bottom: 5mm;
+    }
+    .cover-meta strong { color: var(--ink-700); font-weight: 600; }
+    .cover-meta .sep { margin: 0 6mm; color: var(--ink-300); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8mm;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 5mm;
+      padding: 6mm 7mm;
+      margin-bottom: 5mm;
+    }
+    .hero-left .label {
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--coral-500);
+      font-family: ui-monospace, monospace;
+    }
+    .hero-left .pct {
+      font-size: 56pt;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: var(--grad-main);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 1mm 0;
+    }
+    .hero-left .fraction { font-size: 11pt; color: var(--ink-700); font-weight: 600; }
+    .hero-left .fraction .togo { color: var(--ink-500); font-weight: 400; }
+    .hero-right { display: flex; flex-direction: column; justify-content: center; }
+    .hero-bar-wrap { height: 12pt; background: var(--coral-100); border-radius: 100px; overflow: hidden; }
+    .hero-bar { height: 100%; background: var(--grad-main); border-radius: 100px; }
+    .hero-status {
+      margin-top: 4mm;
+      display: inline-flex;
+      align-items: center;
+      gap: 2mm;
+      padding: 2mm 4mm;
+      border-radius: 100px;
+      background: var(--coral-100);
+      color: var(--coral-600);
+      font-size: 9pt;
+      font-weight: 600;
+      border: 1px solid var(--coral-400);
+      align-self: flex-start;
+    }
+
+    .insight {
+      background: var(--ink-900);
+      color: var(--canvas);
+      border-radius: 4mm;
+      padding: 5mm 7mm;
+      margin-bottom: 5mm;
+    }
+    .insight-label {
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--coral-400);
+      font-family: ui-monospace, monospace;
+    }
+    .insight p {
+      font-size: 10.5pt;
+      line-height: 1.5;
+      margin-top: 2mm;
+      color: rgba(255,255,255,0.92);
+    }
+    .insight strong { color: var(--coral-400); }
+
+    .section-title {
+      font-size: 12pt;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: var(--ink-900);
+      margin: 4mm 0 2.5mm;
+    }
+    .section-title .accent {
+      background: var(--grad-main);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3mm; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3mm;
+      padding: 4mm 4.5mm;
+    }
+    .card .laag-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 7mm; height: 7mm;
+      border-radius: 2mm;
+      background: var(--coral-100);
+      color: var(--coral-500);
+      font-weight: 800;
+      font-size: 11pt;
+      font-family: ui-monospace, monospace;
+    }
+    .card .titel {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin-top: 2.5mm;
+      margin-bottom: 1mm;
+    }
+    .card .pct {
+      font-size: 18pt;
+      font-weight: 800;
+      color: var(--ink-900);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin: 1.5mm 0;
+    }
+    .card .pct .icoon { font-size: 12pt; margin-left: 1mm; }
+    .card .fraction {
+      font-size: 8.5pt;
+      color: var(--ink-500);
+      font-family: ui-monospace, monospace;
+    }
+    .card .fraction strong { color: var(--ink-700); font-weight: 600; }
+    .progress-bar {
+      margin-top: 2mm;
+      height: 4pt;
+      background: var(--surface-warm);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .progress-fill { height: 100%; border-radius: 100px; }
+    .progress-fill.s-good { background: linear-gradient(135deg, var(--success), #34D399); }
+    .progress-fill.s-decent { background: linear-gradient(135deg, var(--coral-400), var(--peach-500)); }
+    .progress-fill.s-warn { background: linear-gradient(135deg, var(--warning), #FCD34D); }
+    .progress-fill.s-danger { background: linear-gradient(135deg, var(--danger), #F87171); }
+
+    .prio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 3mm; }
+    .prio {
+      background: linear-gradient(135deg, rgba(255,91,62,0.04), rgba(255,182,120,0.06));
+      border: 1px solid var(--coral-400);
+      border-left: 3px solid var(--coral-500);
+      border-radius: 3mm;
+      padding: 5mm 6mm 5mm 7mm;
+      position: relative;
+    }
+    .prio-num {
+      position: absolute;
+      top: 5mm; left: -3mm;
+      width: 7mm; height: 7mm;
+      background: var(--grad-main);
+      color: white;
+      font-weight: 800;
+      font-size: 10pt;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .prio h3 {
+      font-size: 11pt;
+      font-weight: 800;
+      color: var(--ink-900);
+      margin: 0 0 1.5mm 5mm;
+      letter-spacing: -0.015em;
+    }
+    .prio dl {
+      margin: 2mm 0 0 5mm;
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 1.5mm 3mm;
+      font-size: 9pt;
+    }
+    .prio dt {
+      color: var(--ink-500);
+      font-weight: 700;
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding-top: 0.3mm;
+    }
+    .prio dd { margin: 0; color: var(--ink-700); }
+
+    .laag-detail {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3mm;
+      margin-bottom: 4mm;
+      overflow: hidden;
+    }
+    .laag-detail h3 {
+      padding: 3mm 5mm;
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--ink-900);
+      background: var(--surface-warm);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .laag-detail h3 .meta {
+      font-size: 8.5pt;
+      font-weight: 500;
+      color: var(--ink-500);
+      font-family: ui-monospace, monospace;
+    }
+    .laag-detail h3 .meta .pct {
+      color: var(--coral-600);
+      font-weight: 700;
+      margin-right: 4mm;
+    }
+    .laag-detail table { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
+    .laag-detail th, .laag-detail td {
+      padding: 2mm 4mm;
+      text-align: left;
+      vertical-align: top;
+      border-top: 1px solid var(--border);
+    }
+    .laag-detail thead th {
+      background: var(--surface-warm);
+      font-weight: 700;
+      color: var(--ink-900);
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-top: none;
+    }
+    .laag-detail td.code {
+      font-family: ui-monospace, monospace;
+      font-weight: 600;
+      color: var(--coral-600);
+      width: 9mm;
+    }
+    .laag-detail td.status { font-size: 11pt; text-align: center; width: 9mm; }
+    .laag-detail td.naam { width: 50mm; font-weight: 600; color: var(--ink-900); }
+
+    .cta-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4mm;
+      padding: 5mm 7mm;
+    }
+    .cta-block h3 {
+      font-size: 11pt;
+      color: var(--ink-900);
+      font-weight: 700;
+      margin-bottom: 2mm;
+    }
+    .cta-block p { margin-bottom: 2mm; font-size: 9.5pt; }
+    .cta-block ol { margin: 2mm 0 2mm 5mm; }
+    .cta-block ol li { margin-bottom: 1mm; font-size: 9.5pt; }
+    .cta-block code {
+      background: var(--surface-warm);
+      padding: 0.5mm 2mm;
+      border-radius: 1mm;
+      font-size: 8.5pt;
+      color: var(--coral-600);
+      border: 1px solid var(--border);
+      font-family: ui-monospace, monospace;
+    }
+    .cta-block .small {
+      font-size: 8.5pt;
+      color: var(--ink-500);
+      margin-top: 3mm;
+    }
+  </style>
+</head>
+<body>
+
+<!-- PAGINA 1: Cover + Samenvatting -->
+<div class="page">
+  <div class="page-header">
+    <div class="left">SCALE Audit <span class="accent">Rapport</span></div>
+    <div class="right">{{scope}} · {{datum}} · Pagina 1/4</div>
+  </div>
+
+  <h1 class="cover-title">SCALE Audit <span class="accent">{{scope}}</span></h1>
+  <div class="cover-meta">
+    <strong>Datum:</strong> {{datum}} <span class="sep">·</span>
+    <strong>Type:</strong> {{first-or-iter}} <span class="sep">·</span>
+    <strong>Skill:</strong> scale-audit v1.0.1 <span class="sep">·</span>
+    <strong>Scope:</strong> {{scope-pad}}
+  </div>
+
+  <div class="hero">
+    <div class="hero-left">
+      <div class="label">Compleetheid totaal</div>
+      <div class="pct">{{TOT.pct}}%</div>
+      <div class="fraction">{{TOT.behaald}} van {{TOT.max}} punten <span class="togo">· nog {{TOT.tegaan}} punten te gaan · {{TOT.nvt}} op n.v.t.</span></div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-bar-wrap"><div class="hero-bar" style="width: {{TOT.pct}}%"></div></div>
+      <div class="hero-status">{{TOT.status-icoon}} {{TOT.status-tekst}}</div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-label">Belangrijkste inzicht</div>
+    <p>{{INSIGHT.tekst}}</p>
+  </div>
+
+  <h2 class="section-title">Per <span class="accent">SCALE-laag</span></h2>
+  <div class="grid-5">
+    <!-- Voor elke laag (S, C, A, L, E): kopieer dit blok -->
+    <div class="card">
+      <span class="laag-letter">S</span>
+      <div class="titel">Structure</div>
+      <div class="pct">{{LAAG.S.pct}}%<span class="icoon">{{LAAG.S.icoon}}</span></div>
+      <div class="fraction"><strong>{{LAAG.S.behaald}} van {{LAAG.S.max}}</strong> · nog {{LAAG.S.tegaan}}</div>
+      <div class="progress-bar"><div class="progress-fill {{LAAG.S.kleurklasse}}" style="width: {{LAAG.S.pct}}%"></div></div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Cross-cutting <span class="accent">domeinen</span></h2>
+  <div class="grid-3">
+    <!-- Voor elke domein (J, M, V): kopieer dit blok -->
+    <div class="card">
+      <span class="laag-letter">J</span>
+      <div class="titel">Juridisch</div>
+      <div class="pct">{{LAAG.J.pct}}%<span class="icoon">{{LAAG.J.icoon}}</span></div>
+      <div class="fraction"><strong>{{LAAG.J.behaald}} van {{LAAG.J.max}}</strong> · nog {{LAAG.J.tegaan}}</div>
+      <div class="progress-bar"><div class="progress-fill {{LAAG.J.kleurklasse}}" style="width: {{LAAG.J.pct}}%"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGINA 2: Top 3 prioriteiten (full page) -->
+<div class="page">
+  <div class="page-header">
+    <div class="left">SCALE Audit <span class="accent">Rapport</span></div>
+    <div class="right">{{scope}} · {{datum}} · Pagina 2/4</div>
+  </div>
+
+  <h2 class="section-title">Top <span class="accent">3 prioriteiten</span> komende maand</h2>
+  <p style="font-size: 9.5pt; color: var(--ink-500); margin-bottom: 4mm;">Gekozen op basis van impact: fundament-items eerst, quick wins boven volledige nieuwbouw, items met enabler-effect die andere checks ontgrendelen.</p>
+
+  <div class="prio-grid">
+    <!-- Voor elke prioriteit (1, 2, 3): kopieer dit blok -->
+    <div class="prio">
+      <div class="prio-num">1</div>
+      <h3>{{PRIO.1.titel}}</h3>
+      <dl>
+        <dt>Wat</dt><dd>{{PRIO.1.wat}}</dd>
+        <dt>Waarom nu</dt><dd>{{PRIO.1.waarom}}</dd>
+        <dt>Tijd</dt><dd>{{PRIO.1.tijd}}</dd>
+        <dt>Skill</dt><dd>{{PRIO.1.skill}}</dd>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<!-- PAGINA 3: Detail Laag S + C (vol uitgeklapt) -->
+<div class="page">
+  <div class="page-header">
+    <div class="left">SCALE Audit <span class="accent">Rapport</span></div>
+    <div class="right">{{scope}} · {{datum}} · Pagina 3/4</div>
+  </div>
+
+  <h2 class="section-title">Detail <span class="accent">per laag</span> (1)</h2>
+
+  <div class="laag-detail">
+    <h3>Laag S, Structure <span class="meta"><span class="pct">{{LAAG.S.pct}}%</span>{{LAAG.S.behaald}} van {{LAAG.S.max}} · nog {{LAAG.S.tegaan}}</span></h3>
+    <table>
+      <thead><tr><th class="code">#</th><th class="naam">Check</th><th class="status"></th><th>Toelichting</th></tr></thead>
+      <tbody>
+        <!-- Per check: één rij. Volledig uitgeklapt. -->
+        <tr><td class="code">{{check-id}}</td><td class="naam">{{check-naam}}</td><td class="status">{{icoon}}</td><td>{{toelichting}}</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="laag-detail">
+    <h3>Laag C, Collect <span class="meta"><span class="pct">{{LAAG.C.pct}}%</span>{{LAAG.C.behaald}} van {{LAAG.C.max}} · nog {{LAAG.C.tegaan}}</span></h3>
+    <table>
+      <thead><tr><th class="code">#</th><th class="naam">Check</th><th class="status"></th><th>Toelichting</th></tr></thead>
+      <tbody>
+        <!-- ... -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- PAGINA 4: Detail A + L + E + Cross-cutting + Scheduled task -->
+<div class="page">
+  <div class="page-header">
+    <div class="left">SCALE Audit <span class="accent">Rapport</span></div>
+    <div class="right">{{scope}} · {{datum}} · Pagina 4/4</div>
+  </div>
+
+  <h2 class="section-title">Detail <span class="accent">per laag</span> (2)</h2>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4mm;">
+    <div class="laag-detail">
+      <h3>Laag A, Analyze <span class="meta"><span class="pct">{{LAAG.A.pct}}%</span>{{LAAG.A.behaald}} van {{LAAG.A.max}}</span></h3>
+      <table>
+        <thead><tr><th class="code">#</th><th class="naam">Check</th><th class="status"></th><th>Toelichting</th></tr></thead>
+        <tbody>
+          <!-- ... -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="laag-detail">
+      <h3>Laag L, Leverage <span class="meta"><span class="pct">{{LAAG.L.pct}}%</span>{{LAAG.L.behaald}} van {{LAAG.L.max}}</span></h3>
+      <table>
+        <thead><tr><th class="code">#</th><th class="naam">Check</th><th class="status"></th><th>Toelichting</th></tr></thead>
+        <tbody>
+          <!-- ... -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 4mm;">
+    <div class="laag-detail">
+      <h3>Laag E, Engineer <span class="meta"><span class="pct">{{LAAG.E.pct}}%</span>{{LAAG.E.behaald}} van {{LAAG.E.max}}</span></h3>
+      <table>
+        <thead><tr><th class="code">#</th><th class="naam">Check</th><th class="status"></th><th>Toelichting</th></tr></thead>
+        <tbody>
+          <!-- ... -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="laag-detail">
+      <h3>Cross-cutting domeinen <span class="meta"><span class="pct">{{XCUT.pct}}%</span>{{XCUT.behaald}} van {{XCUT.max}}</span></h3>
+      <table>
+        <thead><tr><th class="code">#</th><th class="naam">Check</th><th class="status"></th><th>Toelichting</th></tr></thead>
+        <tbody>
+          <!-- J1-J6, M1-M4, V1-V3 -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="cta-block" style="margin-top: 4mm;">
+    <h3>Maandelijkse scheduled task</h3>
+    <p>Wil je deze audit elke maand automatisch laten draaien? Drie opties:</p>
+    <ol>
+      <li><strong>Maandelijks</strong> (1ste van de maand om 10:00) <em>aanbevolen</em>, cron <code>0 10 1 * *</code></li>
+      <li><strong>Per kwartaal</strong> (1 jan, 1 apr, 1 jul, 1 okt om 10:00), cron <code>0 10 1 1,4,7,10 *</code></li>
+      <li><strong>Geen scheduled task</strong>, handmatig draaien wanneer gewenst</li>
+    </ol>
+    <p class="small">Output blijft naar <code>{{scope-pad}}/Directie/Research/YYYY-MM-DD - SCALE Audit.{md,html,pdf}</code></p>
+  </div>
+
+  <div style="margin-top: 6mm; padding-top: 3mm; border-top: 1px solid var(--border); font-size: 7.5pt; color: var(--ink-500); text-align: center; font-family: ui-monospace, monospace;">
+    Gegenereerd door de <strong>scale-audit</strong> skill van Upscailed · v1.0.1
+  </div>
+</div>
+
+</body>
+</html>

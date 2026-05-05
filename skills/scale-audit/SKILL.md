@@ -135,14 +135,15 @@ Bied per voorgestelde n.v.t.-markering een keuze: "Akkoord op n.v.t.", "Toch che
 
 **Belangrijk**: dit is een voorstel, geen automatisch besluit. De gebruiker bepaalt.
 
-### Stap 5: Rapport schrijven (markdown EN HTML)
+### Stap 5: Rapport schrijven (markdown, HTML, en PDF)
 
-Genereer het rapport in **twee formaten** parallel, omdat ze elk een andere rol vervullen:
+Genereer het rapport in **drie formaten** parallel, omdat ze elk een andere rol vervullen:
 
 - **Markdown** (`YYYY-MM-DD - SCALE Audit.md`) is de bron-van-waarheid die in de vault leeft, version control vriendelijk, en in elke editor te lezen.
-- **HTML** (`YYYY-MM-DD - SCALE Audit.html`) is een visueel dashboard met progress bars, kaart-layout en inklapbare detail-tabellen, ideaal om in een browser te bekijken of te delen.
+- **HTML** (`YYYY-MM-DD - SCALE Audit.html`) is een visueel dashboard met progress bars en inklapbare detail-tabellen, ideaal om in een browser te bekijken.
+- **PDF** (`YYYY-MM-DD - SCALE Audit.pdf`) is een A4 landscape versie met slimme page-breaks, ideaal om te delen of te printen. Detail-tabellen zijn altijd uitgeklapt zodat alle informatie zichtbaar is op papier.
 
-Beide opslaan op dezelfde plek: `[scope]/Directie/Research/` (of `Persoonlijk/Research/` bij persoonlijke scope).
+Alle drie opslaan op dezelfde plek: `[scope]/Directie/Research/` (of `Persoonlijk/Research/` bij persoonlijke scope).
 
 Het rapport bevat in beide formaten:
 1. **Header**: scope, datum, vergelijking met vorige audit indien beschikbaar
@@ -157,10 +158,14 @@ Het rapport bevat in beide formaten:
 #### Notatie: percentage én aantal
 
 Toon altijd **beide** zodat de gebruiker weet hoeveel werk nog nodig is:
-- Hoofdscore: `43% (20,0 van 47 punten)`
+- Hoofdscore: `43% (20 van 47 punten)`
 - Per laag: `54% (6,5 van 12) · nog 5,5 te gaan`
 
-Gebruik komma's als decimaalteken (Nederlands), niet punten. Bij halve punten (vanwege ⚠️ = 0,5) toon je dat ook als komma-getal.
+**Getalformatting-regel** (belangrijk voor leesbaarheid):
+- Gebruik komma's als decimaalteken (Nederlands), niet punten
+- Toon de decimaal **alleen als hij betekenisvol is** (niet 0). Dus `6,5` en `2,5` blijven, maar `6,0` wordt `6` en `20,0` wordt `20`
+- Bij halve punten (door ⚠️ = 0,5) krijg je vanzelf zinvolle decimalen, bij hele punten weglaten
+- Geldt voor zowel "behaald" als "te gaan"-cijfers, en in alle drie de formaten (markdown, HTML, PDF)
 
 #### Statusbalk-format (markdown)
 
@@ -190,6 +195,30 @@ De hoofdscore krijgt een prominente coral gradient bar (Upscailed-merk). Per-laa
 #### HTML-genereren
 
 Lees `references/report-template.html` als startpunt en vervang de placeholder-data met de actuele audit-data. De template is self-contained (inline CSS, geen externe dependencies behalve eventueel system fonts), zodat de HTML in elke browser opent zonder netwerkverbinding.
+
+#### PDF-genereren
+
+Voor de PDF-versie: gebruik `references/report-template-pdf.html` als startpunt. Deze template heeft een aparte structuur (geen `<details>` maar volledig uitgeklapte detail-tabellen, A4 landscape page-breaks, compactere typografie) zodat hij goed paginaert.
+
+Stappen:
+1. Vul de PDF-template met dezelfde data als de HTML-template (de placeholders zijn identiek)
+2. Sla de gevulde HTML tijdelijk op als verborgen bestand: `[scope]/Directie/Research/.scale-audit-pdf-source.html`
+3. Roep `scripts/html-to-pdf.sh` aan met die source en de gewenste PDF-output:
+   ```bash
+   bash scripts/html-to-pdf.sh \
+     "[scope]/Directie/Research/.scale-audit-pdf-source.html" \
+     "[scope]/Directie/Research/YYYY-MM-DD - SCALE Audit.pdf"
+   ```
+4. Verwijder de tijdelijke HTML-source na succesvolle PDF-generatie
+5. Het script gebruikt headless Chrome (of Chromium, of wkhtmltopdf als fallback) en geeft een nette foutmelding als geen converter beschikbaar is
+
+De PDF heeft 4 pagina's:
+1. Cover + samenvatting (hero, insight, alle laag-cards)
+2. Top 3 prioriteiten (3 kolommen)
+3. Detail Laag S + C
+4. Detail A + L + E + cross-cutting + scheduled task voorstel
+
+Belangrijk: page-breaks worden gerespecteerd via `page-break-inside: avoid` op cards en tabellen. Dit voorkomt dat een card halverwege de pagina wordt afgesneden.
 
 ### Stap 6: Scheduled task voorstellen
 
