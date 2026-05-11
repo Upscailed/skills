@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 20 tot 45 minuten een Team.md op te bouwen
 category: structure
 tags: [team, rollen, structure, hr, organogram, scale-framework, s11]
 estimatedTime: "20 tot 45 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 ---
@@ -25,6 +25,45 @@ Helpt een ondernemer om in 20 tot 45 minuten zijn of haar **rolverdeling** vast 
 *Waarom dit fundamenteel is.* In de SCALE-volgorde is S11 vaak de stap die het verschil maakt tussen *"AI helpt me met losse taken"* en *"AI ontlast me structureel"*. Pas als je rollen helder hebt, kun je een rol gedeeltelijk afstaan zonder dat het bedrijf in de war raakt. Zonder Team.md eindigt elke automatisering bij *"ja maar wie krijgt dan dit signaal?"*.
 
 Resultaat: SCALE-audit S11 springt van ❌ of ⚠️ naar ✅, en het document is direct herbruikbaar voor SCALE-stappen L (Leverage) en E (Engineer).
+
+## Run-time introductie (toon aan gebruiker bij start)
+
+Voordat het interview begint, geef de gebruiker een korte introductie zodat hij weet wat hem te wachten staat. Voorbeeld-tekst:
+
+```
+┌──────────────────────────────────────────────────────────┐
+│  TEAM EN ROLLEN — SCALE-stap S11                          │
+│  ~20-45 minuten · variant-afhankelijk                     │
+└──────────────────────────────────────────────────────────┘
+
+  Ik help je in 20 tot 45 minuten een Team.md op te bouwen
+  waarin alle rollen vastliggen: wie doet wat, wie beslist,
+  waar werk overgaat (aan persoon, freelancer, VA of AI) en
+  hoeveel tijd elke rol kost. Direct input voor SCALE-stap L
+  (Leverage), om te zien welke pet je gedeeltelijk kunt
+  afstaan.
+
+  ┌────────────────────────────────────────────────────────┐
+  │  WAT JE TE WACHTEN STAAT                                │
+  │                                                         │
+  │  • Eerst kies ik samen met jou de variant:              │
+  │      [A] Solopreneur (1 persoon, 6 kernrollen)          │
+  │      [B] Micro-team (2-5 mensen + rollen-matrix)        │
+  │      [C] Klein MKB (5-15, units + beslislaag)           │
+  │  • Vooraf scan ik bestaande bronnen (Goals, Bedrijfs-   │
+  │    verhaal, eventuele eerdere Team.md, optioneel een    │
+  │    afsprakenbestand met personen-namen)                 │
+  │  • Daarna interview, één rol of persoon per beurt:      │
+  │      Variant A: 6 rollen, ~4 vragen elk                 │
+  │      Variant B: per persoon ~4 vragen + matrix          │
+  │      Variant C: per unit + sleutelpersonen + mandaten   │
+  │  • Output: HR/Team.md met cross-link naar S12 Toolstack │
+  └────────────────────────────────────────────────────────┘
+
+  Heb je nog externe input (organogram, LinkedIn-profielen
+  van mede-eigenaren, bestaande functiebeschrijvingen)?
+  Dan kun je dat nu noemen of plakken.
+```
 
 ## Visuele Flow
 
@@ -148,7 +187,7 @@ Lees systematisch wat er al beschikbaar is. Sla per bron kort op wat je gevonden
 | `Persoonlijk/00 - Over Iwan.md` (of stichter-profiel) | Achtergrond hoofdpersoon, sterke kanten, voorkeuren |
 | `Persoonlijk/Strategie.md` | Cross-bedrijf rollen (waar Iwan in meerdere bedrijven dezelfde pet draagt) |
 | `Persoonlijk/ICP.md` | Doelgroep-context (kleurt sales- en marketing-rol) |
-| `Persoonlijk/Afspraken AI.md` (sectie Personen) | Mede-oprichters, mentoren, externe steun (boekhouder, jurist) |
+| **Optioneel:** een centraal afsprakenbestand met personen-namen als de gebruiker zo'n bestand heeft (vraag actief — paden variëren per vault: `Persoonlijk/Afspraken AI.md`, een Notion-page met team-info, of een ander document). Skip stilletjes als dit nergens bestaat. | Mede-oprichters, mentoren, externe steun (boekhouder, jurist) |
 
 Bij **micro-team / klein MKB** ook checken:
 - Of er een `{scope}/HR/`-map al gevuld is (CV's, profielen, vorige Team-versies)
@@ -277,7 +316,7 @@ scale-check: S11
 
 Logging (allemaal in dezelfde tool-call-ronde, niet later):
 1. **Changelog bedrijf** — `{scope}/Directie/Changelog.md`: nieuwste datum bovenaan, regel als *"Nieuw: `HR/Team.md` — variant <X>, <N> rollen ingevuld"*.
-2. **Daily** — `Huddle/Daily/YYYY-MM-DD.md` onder *Gedaan vandaag → [Bedrijf]*: eenregelige melding plus link naar het nieuwe bestand. **Let op:** in de Upscailed-kluis bestaat `Huddle/` niet — daar log je in de hoofdvault-daily.
+2. **Daily** — als de vault een daily-logging conventie heeft (bv. `Huddle/Daily/YYYY-MM-DD.md` in een Iwan-OS-stijl vault, of een Notion-daily-pagina), log dan een eenregelige melding plus link naar het nieuwe bestand onder *Gedaan vandaag → [Bedrijf]*. Skip als die conventie niet bestaat — het changelog-entry uit stap 1 is dan voldoende.
 3. **Goals-bestand** — als `{scope}/Directie/01 - Goals.md` een S11-doel of HR-doel heeft: status bijwerken (✅), regel toevoegen aan het voortgangslog.
 4. **Scale-audit-suggestie** — als `{scope}/Directie/Research/` een audit-rapport bevat waar S11 op ❌ of ⚠️ staat: stel voor de audit opnieuw te draaien om de update zichtbaar te maken in de totaalscore.
 

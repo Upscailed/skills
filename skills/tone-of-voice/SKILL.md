@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 45 tot 60 minuten een compleet, profession
 category: structure
 tags: [tone-of-voice, communicatie, schrijven, merk, branding, scale-framework, s3]
 estimatedTime: "45-60 minuten"
-version: "2.0.0"
+version: "2.1.0"
 author: Upscailed
 license: MIT
 ---
@@ -19,6 +19,41 @@ Helpt een ondernemer in 45 tot 60 minuten een compleet Tone of Voice-document op
 De skill werkt via een gestructureerd interview in **6 blokken**, één voor één, zodat de ondernemer per blok kan antwoorden zonder overspoeld te worden. Vóór het interview begint, scant de skill eerst de bestaande documenten in de vault, zodat we niet vragen wat al ergens staat. Na het interview stelt de skill het Tone of Voice-document op en slaat het op als `{scope}/Directie/Playbook/Tone of Voice.md`.
 
 Resultaat: SCALE-audit S3 (Tone of Voice) springt van ❌ of ⚠️ naar ✅, en de ondernemer heeft één canoniek document waar elke tekstmaker (mens of AI) zich op kan baseren.
+
+## Run-time introductie (toon aan gebruiker bij start)
+
+Voordat het interview begint, geef de gebruiker een korte introductie zodat hij weet wat hem te wachten staat. Voorbeeld-tekst:
+
+```
+┌──────────────────────────────────────────────────────────┐
+│  TONE OF VOICE — SCALE-stap S3                            │
+│  ~45-60 minuten · 6 interview-blokken                     │
+└──────────────────────────────────────────────────────────┘
+
+  Ik help je in 45 tot 60 minuten een compleet Tone of Voice-
+  document op te stellen dat als bron-van-waarheid dient voor
+  al je communicatie: website, social, e-mail, klantgesprekken,
+  advertenties.
+
+  ┌────────────────────────────────────────────────────────┐
+  │  WAT JE TE WACHTEN STAAT                                │
+  │                                                         │
+  │  • 6 blokken interview (één per beurt, niet alles       │
+  │    tegelijk): Persoon · Dimensies · Taalgebruik ·       │
+  │    Kanalen · Situaties · Schrijfregels                  │
+  │  • Per blok 1-4 keuzevragen — je klikt opties aan       │
+  │  • Vooraf scan ik bestaande bronnen (Brand Guidelines,  │
+  │    Bedrijfsverhaal, ICP, eerdere content) zodat we      │
+  │    niets vragen wat al ergens staat                     │
+  │  • 3 voorbeeldteksten ter check (post, e-mail, web)     │
+  │  • Output: Directie/Playbook/Tone of Voice.md           │
+  │    (1500-3000 woorden, incl. Quick Reference Card)      │
+  └────────────────────────────────────────────────────────┘
+
+  Heb je nog externe input (eigen content waar je trots op
+  bent, een merk-met-vergelijkbare-stem die je inspireert,
+  een eerdere ToV-poging)? Dan kun je dat nu noemen.
+```
 
 ## Visuele Flow
 
@@ -117,7 +152,7 @@ Lees systematisch deze documenten als ze bestaan. Maak een interne aantekening p
 | `Persoonlijk/ICP.md` (sectie van het bedrijf) of `{scope}/Directie/Playbook/ICP.md` | Doelgroep, pijnpunten, taalniveau, aanspreking |
 | `{scope}/Marketing/` (oude posts, nieuwsbrieven) | Bestaande stijl, terugkerende woorden, voorbeelden van wat werkt |
 | `{scope}/Directie/Playbook/` (overige playbook-bestanden) | Algemene communicatieafspraken |
-| `Persoonlijk/00 - Over Iwan.md` (of overkoepelend stichter-profiel) | Persoonlijke stem, taalgebruik in eigen content |
+| **Optioneel:** een stichter-profiel of "Over [Naam]"-bestand als de gebruiker zo'n bestand heeft (vraag actief, paden variëren per vault — bv. `Persoonlijk/Over [Naam].md`, `{scope}/Directie/Over [Eigenaar].md`, of een About-pagina-URL) | Persoonlijke stem, taalgebruik in eigen content. Skip stilletjes als dit nergens te vinden is. |
 
 Als de scope een SCALE-audit-rapport heeft in `{scope}/Directie/Research/`: lees ook welke status S3 heeft, en de eventuele motivatie waarom S3 nu ⚠️ of ❌ is. Dat geeft context voor wat in deze ronde extra aandacht verdient.
 

@@ -1,0 +1,51 @@
+{
+  "skill_name": "concurrentie-research",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Breng de concurrenten van Upscailed in kaart. Upscailed helpt het Nederlandse MKB AI-technologie implementeren via trainingen, hybride samenwerking en outsourced bouw. Doelgroep: MKB-ondernemers zonder IT-team. Website: www.upscailed.nl. Scope: Upscailed. Voer een volledige concurrentie-research uit en sla het op in Upscailed/Directie/Research/Concurrentie.md in de vault op /Users/scailer/Upscailed OS.",
+      "expected_output": "Een volledig ingevuld Concurrentie.md bestand in Upscailed/Directie/Research/ met minimaal 3 concurrenten, elk met profiel-tabel, plus secties Marktcontext, Kansen, Bedreigingen, Benchmarkpunten en Onderzoeksverantwoording.",
+      "files": [],
+      "assertions": [
+        "Het outputdocument bevat minimaal 3 concurrenten met naam en een verifieerbare website-URL (geen placeholders zoals [VERIFICEREN])",
+        "Elke concurrent heeft een profiel-tabel met de velden Doelgroep, Aanbod, Prijsmodel, Kanalen, Sterktes en Zwaktes",
+        "Het document bevat een sectie Kansen (input S6) met minimaal 2 bulletpoints",
+        "Het document bevat een sectie Bedreigingen (input S6) met minimaal 2 bulletpoints",
+        "Het document bevat een sectie Benchmarkpunten (input A5) met een tabel",
+        "Het outputbestand is opgeslagen als Upscailed/Directie/Research/Concurrentie.md",
+        "Het document bevat YAML frontmatter met het veld scale_check: C6",
+        "Er is aantoonbaar webresearch uitgevoerd (bronnen of websitebezoeken vermeld in Onderzoeksverantwoording)",
+        "Het document bevat een sectie Aanbevelingen met drie punten: SWOT (swot-analyse skill), Benchmarking (benchmarking skill), en Revisiedatum"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We gaan C6 dichten voor Upscailed. Scan de vault op /Users/scailer/Upscailed OS voor wat al bekend is over het bedrijf, stel maximaal 2 vragen als er informatie ontbreekt, en voer dan een concurrentie-research uit. Breng minimaal 5 concurrenten in kaart die actief zijn in AI-implementatie, AI-training of AI-advies voor het Nederlandse MKB. Sla de output op in Upscailed/Directie/Research/Concurrentie.md.",
+      "expected_output": "Een Concurrentie.md met minimaal 5 concurrenten, elk volledig geprofileerd. Skill heeft eerst de vault gescand (Directie/00 - Overzicht.md) alvorens webresearch te starten.",
+      "files": [],
+      "assertions": [
+        "De skill heeft de vault gescand (Upscailed/Directie/00 - Overzicht.md of vergelijkbaar bestand gelezen) voordat webresearch startte",
+        "Het outputdocument bevat minimaal 5 concurrenten met verifieerbare website-URLs",
+        "Het document bevat een sectie Marktcontext van minimaal 2 zinnen",
+        "Elke concurrent heeft een typering van maximaal 2 zinnen",
+        "Het document bevat een sectie Onderzoeksverantwoording met datum en aantal onderzochte concurrenten",
+        "Het outputbestand is opgeslagen als Upscailed/Directie/Research/Concurrentie.md",
+        "Het document bevat een sectie Aanbevelingen met drie punten: SWOT, Benchmarking en Revisiedatum"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We willen een SWOT-analyse starten voor Upscailed. Voordat we dat kunnen doen, moeten we de markt kennen. Wie zijn de directe concurrenten van Upscailed in de Nederlandse markt voor AI-implementatie bij MKB? Zorg dat de output direct bruikbaar is als input voor de SWOT en benchmarking.",
+      "expected_output": "Concurrentie.md aangemaakt met gestructureerde kansen/bedreigingen-secties die direct als input dienen voor SWOT en benchmarking. Skill herkent de SWOT-voorbereiding als trigger en voert de volledige concurrentie-research workflow uit.",
+      "files": [],
+      "assertions": [
+        "Het outputdocument bevat minimaal 3 concurrenten met verifieerbare website-URLs",
+        "De sectie Kansen is direct toepasbaar als input voor SWOT Opportunities (geen aanvullende bewerking nodig)",
+        "De sectie Bedreigingen is direct toepasbaar als input voor SWOT Threats",
+        "De Benchmarkpunten-tabel bevat minimaal 2 rijen met de kolommen Benchmarkpunt, Best in class en Eigen positie",
+        "Het document bevat een sectie Aanbevelingen met expliciete verwijzing naar de swot-analyse skill als vervolgstap",
+        "Het outputbestand is opgeslagen als Upscailed/Directie/Research/Concurrentie.md"
+      ]
+    }
+  ]
+}

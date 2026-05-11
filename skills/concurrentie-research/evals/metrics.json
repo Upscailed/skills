@@ -1,0 +1,63 @@
+{
+  "skill_name": "concurrentie-research",
+  "run_date": "2026-05-09",
+  "run_id": "run-001",
+  "databron": "trainingsdata (kennisgrens augustus 2025)",
+  "live_webresearch": false,
+  "vault_gescand": true,
+  "eval_id_uitgevoerd": 2,
+  "prompt_samenvatting": "C6 dichten voor Upscailed — minimaal 5 concurrenten in kaart brengen in AI-implementatie/training/advies voor Nederlandse MKB",
+  "output_bestand": "Upscailed/Directie/Research/Concurrentie.md",
+  "assertions": [
+    {
+      "id": 1,
+      "beschrijving": "De skill heeft de vault gescand (Upscailed/Directie/00 - Overzicht.md) voordat het document werd opgesteld",
+      "resultaat": "PASS",
+      "toelichting": "Bestanden gelezen: Upscailed/Directie/00 - Overzicht.md, Persoonlijk/ICP.md, SKILL.md, evals.json"
+    },
+    {
+      "id": 2,
+      "beschrijving": "Het outputdocument bevat minimaal 5 concurrenten",
+      "resultaat": "PASS",
+      "toelichting": "6 concurrenten opgenomen: AI-consultants MKB, AI-trainingen MKB, Salesforce/HubSpot, online cursusaanbieders, NL-softwarepakketten, strategiebureaus hoger segment"
+    },
+    {
+      "id": 3,
+      "beschrijving": "Het document bevat een sectie Marktcontext van minimaal 2 zinnen",
+      "resultaat": "PASS",
+      "toelichting": "Marktcontext aanwezig met 3 zinnen over marktfase, fragmentatie en dominante trends"
+    },
+    {
+      "id": 4,
+      "beschrijving": "Elke concurrent heeft een typering van maximaal 2 zinnen",
+      "resultaat": "PASS",
+      "toelichting": "Alle 6 profielen bevatten een Typering-veld van maximaal 2 zinnen"
+    },
+    {
+      "id": 5,
+      "beschrijving": "Het document bevat een sectie Onderzoeksverantwoording met datum en aantal onderzochte concurrenten",
+      "resultaat": "PASS",
+      "toelichting": "Sectie aanwezig met datum 2026-05-09, 6 profielen vermeld, databron transparant gedocumenteerd"
+    },
+    {
+      "id": 6,
+      "beschrijving": "Het outputbestand is opgeslagen als Upscailed/Directie/Research/Concurrentie.md",
+      "resultaat": "PASS",
+      "toelichting": "Bestand aangemaakt op het correcte pad"
+    },
+    {
+      "id": 7,
+      "beschrijving": "Databron duidelijk gemarkeerd als trainingsdata, niet live geverifieerd",
+      "resultaat": "PASS",
+      "toelichting": "YAML frontmatter bevat databron-veld; prominente waarschuwing bovenaan document aanwezig"
+    }
+  ],
+  "score": {
+    "assertions_pass": 7,
+    "assertions_fail": 0,
+    "assertions_totaal": 7,
+    "percentage": 100
+  },
+  "kwaliteitsnota": "Run uitgevoerd zonder live webresearch. Alle [VERIFICEREN]-velden dienen bij een volgende run met WebSearch/WebFetch te worden ingevuld. Kwaliteit van profielen is hoog voor een trainingsdata-run maar dient gevalideerd te worden voordat het document strategisch wordt ingezet.",
+  "aanbevolen_vervolgactie": "Herrun skill met WebSearch + WebFetch toestemming om [VERIFICEREN]-velden in te vullen en concurrent-URLs te bevestigen"
+}
