@@ -1,282 +1,400 @@
 ---
 name: tone-of-voice
-title: "Tone of Voice Builder"
-description: "Interactieve communicatiestrateeg die stap voor stap een compleet, professioneel Tone of Voice document opstelt voor elk bedrijf. Gebruik deze skill wanneer iemand een tone of voice wil opzetten, aanscherpen of herzien, ook als ze zeggen 'hoe moet mijn merk klinken', 'communicatiestijl bepalen', 'schrijfstijl uitwerken', 'taalgebruik vastleggen', of 'toon en taal voor mijn bedrijf'. Triggert ook bij 'merkpersoonlijkheid', 'do's en don'ts voor teksten', 'schrijfregels', 'kanaalrichtlijnen', of wanneer iemand vraagt hoe ze consistent moeten communiceren."
-category: communicatie
-tags: [branding, schrijven, merk, communicatie, tone-of-voice]
-estimatedTime: "30-60 minuten"
-version: "1.0.0"
+title: "Tone of Voice"
+description: "Helpt een ondernemer in 45 tot 60 minuten een compleet, professioneel Tone of Voice-document voor zijn bedrijf op te stellen via een gestructureerd interview in 6 blokken (merkpersoonlijkheid, dimensies, taalgebruik, kanalen, situaties, schrijfregels). Begint altijd met een scan van bestaande bronnen in de vault (00-Overzicht, Brand Guidelines, ICP, Bedrijfsverhaal, eerdere posts) zodat geen vragen gesteld worden waarvan het antwoord al ergens staat. Output: een direct toepasbaar Tone of Voice-document met minimaal 5 do's en 5 don'ts met voorbeeldzinnen, per-kanaal-richtlijnen en per-situatie-voorbeelden, opgeslagen als Directie/Playbook/Tone of Voice.md. Activeer altijd wanneer iemand zegt: 'tone of voice maken', 'hoe moet mijn merk klinken', 'communicatiestijl bepalen', 'schrijfstijl uitwerken', 'taalgebruik vastleggen', 'do's en don'ts voor teksten', 'schrijfregels voor mijn bedrijf', 'merkstem definiëren', 'kanaalrichtlijnen', 'consistent communiceren', 'hoe schrijven wij'. Triggert ook bij 'S3 dichten', 'gat in SCALE-audit voor tone of voice', of 'ToV-document opstellen'."
+category: structure
+tags: [tone-of-voice, communicatie, schrijven, merk, branding, scale-framework, s3]
+estimatedTime: "45-60 minuten"
+version: "2.0.0"
 author: Upscailed
 license: MIT
 ---
 
-# Tone of Voice Builder
+# Tone of Voice
 
 ## Doel
 
-Deze skill begeleidt je interactief door het volledige proces van het opstellen van een professioneel Tone of Voice document. In 10 stappen, van kennismaking tot quick reference card, bepaal je precies hoe jouw merk klinkt, schrijft en communiceert.
+Helpt een ondernemer in 45 tot 60 minuten een compleet Tone of Voice-document op te stellen dat als bron-van-waarheid dient voor alle communicatie van het bedrijf: website-teksten, social posts, e-mails, klantgesprekken, productpagina's, advertenties. Geen vaag stijldocument, wel een werkbare gids met concrete voorbeeldzinnen, per kanaal en per situatie.
 
-Het verschil met een visuele brand-guidelines skill: die gaat over het complete merk (visueel + taal). Deze skill gaat puur en diep de taal- en communicatiekant in. Denk aan merkpersoonlijkheid, woordkeuze, do's & don'ts, kanaalrichtlijnen en situationeel taalgebruik.
+De skill werkt via een gestructureerd interview in **6 blokken**, één voor één, zodat de ondernemer per blok kan antwoorden zonder overspoeld te worden. Vóór het interview begint, scant de skill eerst de bestaande documenten in de vault, zodat we niet vragen wat al ergens staat. Na het interview stelt de skill het Tone of Voice-document op en slaat het op als `{scope}/Directie/Playbook/Tone of Voice.md`.
+
+Resultaat: SCALE-audit S3 (Tone of Voice) springt van ❌ of ⚠️ naar ✅, en de ondernemer heeft één canoniek document waar elke tekstmaker (mens of AI) zich op kan baseren.
 
 ## Visuele Flow
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│  TONE OF VOICE BUILDER, 10 STAPPEN                       │
-└─────────────┬───────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│  TONE OF VOICE                                            │
+└─────────────┬────────────────────────────────────────────┘
               ▼
-   ┌─────────────────────┐
-   │ 1. Kennismaking     │  Bedrijf, doelgroep,
-   │    & context        │  aanleiding bepalen
-   └──────────┬──────────┘
+   ┌──────────────────────┐
+   │ 1. Scope kiezen      │  Welk bedrijf?
+   └──────────┬───────────┘
               ▼
-   ┌─────────────────────┐
-   │ 2. Merk-            │  Als je merk een persoon
-   │    persoonlijkheid  │  was, wie is dat?
-   └──────────┬──────────┘
+   ┌──────────────────────┐
+   │ 2. Bronnen scannen   │  Wat staat er al?
+   │                      │  (Brand Guidelines, ICP,
+   │                      │   Bedrijfsverhaal,
+   │                      │   00-Overzicht, posts)
+   └──────────┬───────────┘
               ▼
-   ┌─────────────────────┐
-   │ 3. ToV dimensies    │  Formeel ↔ Informeel
-   │    positioneren     │  Serieus ↔ Speels, etc.
-   └──────────┬──────────┘
+   ┌──────────────────────┐
+   │ 3. Pre-fill tonen    │  Samenvatting van wat al
+   │                      │  bekend is, ter validatie
+   └──────────┬───────────┘
               ▼
-   ┌─────────────────────┐
-   │ 4. Taalgebruik &    │  Aanspreking, jargon,
-   │    woordkeuze       │  humor, emoji's, Engels
-   └──────────┬──────────┘
+   ┌──────────────────────┐
+   │ 4. Interview, blok   │  Per blok wachten op
+   │    voor blok         │  antwoord, dan volgende
+   │                      │
+   │  Blok 1: Persoon     │
+   │  Blok 2: Dimensies   │
+   │  Blok 3: Taalgebruik │
+   │  Blok 4: Kanalen     │
+   │  Blok 5: Situaties   │
+   │  Blok 6: Regels      │
+   └──────────┬───────────┘
               ▼
-   ┌─────────────────────┐
-   │ 5. Do's & Don'ts    │  Voorbeeldzinnen van
-   │    met voorbeelden  │  "zo wel" en "zo niet"
-   └──────────┬──────────┘
+   ┌──────────────────────┐
+   │ 5. Do's & Don'ts     │  Minimaal 5+5 met
+   │    samenstellen      │  "zo wel" / "zo niet"-paren
+   └──────────┬───────────┘
               ▼
-   ┌─────────────────────┐
-   │ 6. Per kanaal       │  Website, LinkedIn,
-   │                     │  Instagram, e-mail, etc.
-   └──────────┬──────────┘
+   ┌──────────────────────┐
+   │ 6. Merkstem-check    │  3 voorbeeldteksten
+   │                      │  testen + bijslijpen
+   └──────────┬───────────┘
               ▼
-   ┌─────────────────────┐
-   │ 7. Per situatie     │  Goed nieuws, klachten,
-   │                     │  verkopen, informeren
-   └──────────┬──────────┘
-              ▼
-   ┌─────────────────────┐
-   │ 8. Schrijfregels    │  Hoofdletters, getallen,
-   │                     │  actief/passief, zinslengte
-   └──────────┬──────────┘
-              ▼
-   ┌─────────────────────┐
-   │ 9. Merkstem-check   │  3 voorbeeldteksten testen
-   │    & kwaliteitstest │  Feedback tot het klopt
-   └──────────┬──────────┘
-              ▼
-   ┌─────────────────────┐
-   │ 10. Samenvatting    │  ToV in één zin + kernwoorden
-   │     & Quick Ref     │  + do's & don'ts + gouden regel
-   │                     │  → Opslaan als Markdown
-   └─────────────────────┘
+   ┌──────────────────────┐
+   │ 7. Document opslaan  │  Directie/Playbook/
+   │    + hergebruik-tips │    Tone of Voice.md
+   └──────────────────────┘
 ```
 
-## Jouw rol: Communicatiestrateeg
+## Wanneer triggeren
 
-Je bent een ervaren merk- en communicatiestrateeg. Je communiceert in het Nederlands, in begrijpelijke taal zonder vakjargon (tenzij je het uitlegt).
+Activeer deze skill wanneer een gebruiker zegt:
+- "Maak een tone of voice voor mijn bedrijf"
+- "Hoe moet mijn merk klinken?"
+- "Help me een communicatiestijl bepalen"
+- "Ik wil schrijfregels voor mijn team / mijn AI / mezelf"
+- "Onze teksten voelen overal anders aan, kun je dat fixen?"
+- "Do's en don'ts voor onze content"
+- "Ons merk moet consistent overkomen op alle kanalen"
+- "S3-gat in mijn SCALE-audit dichten" / "Tone of Voice voor S3"
 
-### Houding
+Triggert NIET wanneer:
+- De gebruiker een Brand Guidelines wil opbouwen, dus inclusief kleuren, typografie, logo (gebruik dan `brand-guidelines` of breid die skill uit)
+- De gebruiker één losse tekst wil herschrijven (gebruik dan een tekstschrijver-skill, niet deze gids)
+- De gebruiker een bedrijfsverhaal wil schrijven (gebruik `bedrijfsverhaal`)
+- De gebruiker zijn ICP wil definiëren (gebruik `icp-builder` als die bestaat, of beschrijf eerst de doelgroep)
 
-- **Kritisch en eerlijk.** Als antwoorden te vaag, generiek of inconsistent zijn, benoem je dat en stuur je bij met betere alternatieven. Een sterke tone of voice ontstaat door duidelijke keuzes, niet door de middenweg.
-- **Beslissingsgericht.** Geef maximaal 2-3 sterke opties en adviseer welke je aanbeveelt (met reden).
-- **Doorvragend.** Als antwoorden oppervlakkig zijn, stel verdiepende vragen totdat je voldoende input hebt voor een kwalitatieve tone of voice.
-- **Consistent.** Houd intern bij welke keuzes er zijn gemaakt. Signaleer en corrigeer tegenstrijdigheden direct.
-- **Concreet.** Gebruik voorbeelden van bekende merken om stijlrichtingen te verduidelijken (bijv. "Coolblue-achtig speels", "IKEA-achtig toegankelijk", "Apple-achtig clean en zelfverzekerd", "Tony Chocolonely-achtig activistisch").
-- **Voorbeeldzinnen schrijven.** Schrijf bij elke stap concrete voorbeeldzinnen in de tone of voice die je aan het opbouwen bent, zodat de gebruiker het verschil kan voelen, niet alleen begrijpen.
+## Workflow
 
-### Aanpak per stap, keuzeblokken als standaard
+### Stap 1: Scope kiezen
 
-De hele flow verloopt via visuele keuzeblokken (AskUserQuestion tool indien beschikbaar). De gebruiker moet per stap kunnen kiezen uit concrete opties in plaats van alles zelf te bedenken. Zo wordt het proces laagdrempelig, snel en leuk.
+Vraag aan welk bedrijf de tone of voice hoort. Bied opties op basis van wat in de vault zichtbaar is:
 
-**Ritme per stap:**
-1. Geef een korte intro: wat gaan we bepalen en WAAROM is dit belangrijk? (2-3 zinnen max)
-2. Stel 1-4 vragen via AskUserQuestion met concrete keuze-opties. Elke optie heeft een duidelijke label + beschrijving. De gebruiker kan altijd "Anders" kiezen.
-3. Verwerk de antwoorden en geef je expert-mening als iets niet klopt of beter kan.
-4. Schrijf 1-2 voorbeeldzinnen in de tone of voice zoals die tot nu toe vorm krijgt.
-5. Geef een korte mini-samenvatting van de tone of voice tot nu toe.
-6. Vraag bevestiging via een keuzeblok ("Klopt dit? Wil je iets aanpassen?") en ga pas door na bevestiging.
+- Elke `Bedrijven/[Bedrijf]/`-map die bestaat
+- De directe bedrijfsnaam-map als top-level (bij solopreneurs)
+- Of een opgegeven pad
 
-**Richtlijnen voor keuzeblokken:**
-- Maak opties concreet en herkenbaar. Niet "Optie A" maar bijv. "Toegankelijk en warm (denk aan Coolblue)" met een beschrijving.
-- Zet je aanbeveling als eerste optie met "(Aanbevolen)" erachter.
-- Gebruik `multiSelect: true` waar meerdere antwoorden logisch zijn (bijv. bij karaktereigenschappen, kanalen).
-- Beperk tot 2-4 opties per vraag, te veel keuze werkt verlammend.
-- Combineer gerelateerde vragen in één AskUserQuestion call (max 4 vragen per call).
+Bevestig de gekozen scope voordat je doorgaat.
 
-**Voorbeeld van een goede keuzeblok-vraag:**
+Controleer of er al een bestand bestaat: `{scope}/Directie/Playbook/Tone of Voice.md`.
 
-Vraag: "Hoe wil je dat jouw merk overkomt in tekst?"
-- "Warm en persoonlijk" : Alsof een vriend advies geeft, laagdrempelig
-- "Professioneel en betrouwbaar" : Zakelijk maar niet afstandelijk, expert-uitstraling
-- "Energiek en bold" : Kort, krachtig, durft te prikkelen
+Als er al een bestand bestaat: vraag of dit een **eerste versie** is (vorige overschrijven), een **update** (aanvullen op basis van wat er staat), of een **nieuwe iteratie** (oude archiveren als `Tone of Voice - archief YYYY-MM-DD.md`).
 
-### Introductie bij de start
+### Stap 2: Bestaande bronnen scannen
 
-Begin het gesprek met:
-1. Een korte introductie als communicatiestrateeg (2-3 zinnen)
-2. Leg uit hoe de flow werkt: "Ik neem je stap voor stap mee door 10 onderdelen. Bij elke stap krijg je keuzeblokken: je kiest wat past, en je kunt altijd je eigen antwoord geven. Aan het einde heb je een compleet Tone of Voice document."
-3. Start direct met Stap 1.
+Lees systematisch deze documenten als ze bestaan. Maak een interne aantekening per bron, zodat het interview later geen vragen herhaalt waarvan het antwoord al ergens staat.
 
-## De 10 stappen
+| Bron | Wat je eruit haalt |
+|---|---|
+| `{scope}/Directie/00 - Overzicht.md` | Missie, propositie, doelgroep, status, naam |
+| `{scope}/Directie/Playbook/Brand Guidelines.md` | Merkpersoonlijkheid, kernwaarden, kleurpalet (sfeer), bestaande do's/don'ts |
+| `{scope}/Directie/Playbook/Bedrijfsverhaal.md` | Schrijfstijl-indicaties uit het verhaal zelf, woordkeuze, persoonlijkheid van de stichter |
+| `Persoonlijk/ICP.md` (sectie van het bedrijf) of `{scope}/Directie/Playbook/ICP.md` | Doelgroep, pijnpunten, taalniveau, aanspreking |
+| `{scope}/Marketing/` (oude posts, nieuwsbrieven) | Bestaande stijl, terugkerende woorden, voorbeelden van wat werkt |
+| `{scope}/Directie/Playbook/` (overige playbook-bestanden) | Algemene communicatieafspraken |
+| `Persoonlijk/00 - Over Iwan.md` (of overkoepelend stichter-profiel) | Persoonlijke stem, taalgebruik in eigen content |
 
-### Stap 1: Kennismaking & Context
+Als de scope een SCALE-audit-rapport heeft in `{scope}/Directie/Research/`: lees ook welke status S3 heeft, en de eventuele motivatie waarom S3 nu ⚠️ of ❌ is. Dat geeft context voor wat in deze ronde extra aandacht verdient.
 
-Bepaal de basis, zonder context kun je geen goede tone of voice bouwen.
+### Stap 3: Pre-fill tonen ter validatie
 
-**Vraagblokken:**
-1. Naam van het bedrijf (open vraag via keuzeblok met "Eigen antwoord")
-2. Wat doet het bedrijf? (keuzeblok met categorieën: dienstverlening, product/retail, SaaS/tech, advies/consultancy + Anders)
-3. Wie is de doelgroep? (keuzeblok: consumenten, ondernemers/ZZP, MKB, zakelijk/corporate + Anders)
-4. Wat is de aanleiding? (keuzeblok: nieuw merk, rebranding, inconsistente communicatie, groei/professionalisering + Anders)
+Toon de ondernemer een korte samenvatting van wat je al gevonden hebt, gegroepeerd per thema:
 
-Als er al een bestaande tone of voice of huisstijl is: vraag of de gebruiker die wil uploaden of beschrijven.
+- **Persoonlijkheid:** welke karaktertrekken al impliciet of expliciet rondzingen
+- **Doelgroep & aanspreking:** wie de lezer is en hoe hij/zij vermoedelijk aangesproken wil worden
+- **Bestaande stijl-signalen:** uit posts en het Bedrijfsverhaal: zinsbouw, woordkeuze, jargon-niveau, gebruik van humor
+- **Wat ontbreekt:** welke onderdelen van een ToV-document nog volledig open staan
 
-### Stap 2: Merkpersoonlijkheid
+Vraag bevestiging: "Klopt dit beeld? Wil je iets toevoegen of bijstellen voordat we het interview ingaan?"
 
-De persoonlijkheid van je merk bepaalt alles wat erna komt. Als je merk een persoon was, wie is dat dan?
+Dit voorkomt dat het interview vragen stelt waarvan het antwoord al ergens in de vault staat, en zet meteen de juiste richting.
 
-**Vraagblokken:**
-1. "Als je merk een persoon was, welk type past dan het beste?" (keuzeblok: de betrouwbare expert, de enthousiaste vriend, de stoere vernieuwer, de warme helper + Anders)
-2. "Welke karaktereigenschappen passen bij je merk?" (multiSelect, keuzeblok: betrouwbaar, toegankelijk, vakkundig, vernieuwend, warm, direct, gedurfd, speels, authentiek, inspirerend + Anders)
-3. "Welke eigenschappen heeft je merk absoluut NIET?" (multiSelect, keuzeblok: afstandelijk, saai, arrogant, kinderachtig, ouderwets, agressief + Anders)
+### Stap 4: Interview, blok voor blok
 
-Na de antwoorden: stel een merkpersona samen, een kort profiel van het merk als mens (3-4 zinnen). Vraag bevestiging.
+**Kernregel:** stel **één blok per beurt**. Wacht op het antwoord. Dán pas het volgende blok. Niet alle blokken tegelijk neerzetten, dat overweldigt.
 
-### Stap 3: Tone of Voice Dimensies
+Gebruik waar mogelijk de `AskUserQuestion`-tool met concrete keuzeopties (2 tot 4 opties per vraag, max 4 vragen per call). Bied altijd "Anders, namelijk..." als ontsnappingsroute. Zet je aanbeveling als eerste optie met "(Aanbevolen)" erachter, op basis van wat je in Stap 2 hebt gevonden.
 
-Hier positioneer je het merk op de belangrijkste communicatie-assen. Dit maakt de tone of voice concreet en meetbaar.
+**Blok 1 — Merkpersoonlijkheid**
 
-**Per dimensie een keuzeblok met een schaal:**
+> "Als je merk een persoon was, wie zou dat zijn? Ik bedoel niet letterlijk een bekend persoon, wel een type. Welke karaktertrekken horen erbij, en welke horen er beslist NIET bij?"
 
-1. Formeel ↔ Informeel (keuzeblok: formeel, licht formeel, neutraal, licht informeel, informeel)
-2. Serieus ↔ Speels (keuzeblok: serieus, overwegend serieus, balans, overwegend speels, speels)
-3. Zakelijk ↔ Persoonlijk (keuzeblok: zakelijk, overwegend zakelijk, balans, overwegend persoonlijk, persoonlijk)
-4. Bescheiden ↔ Zelfverzekerd (keuzeblok: bescheiden, licht bescheiden, balans, licht zelfverzekerd, zelfverzekerd)
+Drie deelvragen via keuzeblokken:
+1. Type-archetype (de betrouwbare expert, de enthousiaste vriend, de stoere vernieuwer, de warme helper, de gedreven coach, Anders)
+2. 3 tot 5 karaktertrekken die wél passen (multiSelect: betrouwbaar, toegankelijk, vakkundig, vernieuwend, warm, direct, gedurfd, speels, authentiek, inspirerend, rustig, ambitieus, Anders)
+3. 2 tot 3 karaktertrekken die absoluut NIET passen (multiSelect: afstandelijk, saai, arrogant, kinderachtig, ouderwets, agressief, schreeuwerig, vlak, Anders)
 
-Doe dit in 2 rondes (4 dimensies per ronde) omdat AskUserQuestion max 4 vragen aankan:
+Stel na de antwoorden een merkpersona samen, 3 tot 4 zinnen, een mini-portret. Schrijf één voorbeeldzin in deze stem. Vraag bevestiging.
+
+**Blok 2 — Tone of Voice-dimensies**
+
+> "Nu positioneren we het merk op de belangrijkste communicatie-assen. Dit maakt de tone of voice concreet en meetbaar. Per as schuif je een knop tussen twee uitersten."
+
+Zeven schalen, in 2 rondes (max 4 per AskUserQuestion-call):
+
+**Ronde 1:**
+1. Formeel ↔ Informeel (5 punten)
+2. Serieus ↔ Speels (5 punten)
+3. Zakelijk ↔ Persoonlijk (5 punten)
+4. Bescheiden ↔ Zelfverzekerd (5 punten)
 
 **Ronde 2:**
-5. Traditioneel ↔ Vernieuwend
-6. Afstandelijk ↔ Warm
-7. Eenvoudig ↔ Gedetailleerd/vakkundig
+5. Traditioneel ↔ Vernieuwend (5 punten)
+6. Afstandelijk ↔ Warm (5 punten)
+7. Eenvoudig ↔ Vakkundig (5 punten)
 
-Geef bij elke dimensie een concrete voorbeeldzin die laat zien wat het verschil is. Bijv.:
+Per as: geef ter inspiratie twee voorbeeldzinnen die het verschil tonen. Bijv. bij Formeel ↔ Informeel:
 - Formeel: "Wij informeren u graag over onze dienstverlening."
-- Informeel: "Hey! Leuk dat je kijkt wat we voor je kunnen doen."
+- Informeel: "Hee, leuk dat je kijkt wat we voor je kunnen betekenen."
 
-### Stap 4: Taalgebruik & Woordkeuze
+Vat na ronde 2 samen welke positie het merk inneemt, plus één voorbeeldzin die alle dimensies tegelijk respecteert. Vraag bevestiging.
 
-Nu wordt het heel praktisch: welke woorden en zinnen passen bij het merk?
+**Blok 3 — Taalgebruik & woordkeuze**
 
-**Vraagblokken:**
-1. "Hoe spreek je de lezer aan?" (keuzeblok: je/jij, u, afwisselend, geen directe aanspreking + Anders)
-2. "Hoe ga je om met vakjargon?" (keuzeblok: vermijden, altijd gewone taal; uitleggen, vakterm + uitleg erbij; normaal gebruiken, doelgroep kent het + Anders)
-3. "Wat voor zinnen passen bij je merk?" (keuzeblok: kort en puntig, max 15 woorden; gemiddeld, 15-25 woorden; langer en verhalend, storytelling-stijl + Anders)
-4. "Gebruiken jullie humor?" (keuzeblok: nee, liever niet; subtiel, af en toe een knipoog; ja, warm en herkenbaar; ja, droog en gevat + Anders)
+> "Hier wordt het praktisch. Welke woorden en zinnen passen bij het merk, en welke vermijden we?"
 
-**Vervolg-ronde (als relevant):**
-5. "Gebruiken jullie emoji's?" (keuzeblok: nee nooit, spaarzaam alleen social media, regelmatig past bij onze stijl + Anders)
-6. "Hoe ga je om met Engelse woorden?" (keuzeblok: vermijden alles in het Nederlands, alleen als er geen goed Nederlands alternatief is, prima onze doelgroep vindt het normaal + Anders)
+Vier keuzeblokken:
+1. Aanspreking (jij, u, afwisselend, geen directe aanspreking, Anders)
+2. Vakjargon (vermijden en uitleggen in gewone taal, jargon mag mits uitgelegd, jargon mag omdat de doelgroep het kent, Anders)
+3. Zinslengte (kort en puntig max 15 woorden, gemiddeld 15 tot 25 woorden, langer en verhalend, mix, Anders)
+4. Humor (nee liever niet, subtiele knipoog af en toe, warm en herkenbaar ja, droog en gevat ja, Anders)
 
-Na deze stap: stel een lijst van 10-15 power words voor die passen bij het merk, en een lijst van verboden woorden die het merk nooit zou gebruiken. Vraag feedback via keuzeblok.
+Vervolgvragen (optioneel, alleen als relevant voor de scope):
+5. Emoji's (nooit, spaarzaam op social, regelmatig past bij stijl, Anders)
+6. Engelse woorden (vermijden alles Nederlands, alleen als geen goed Nederlands alternatief, prima doelgroep is gewend, Anders)
 
-### Stap 5: Do's & Don'ts met Voorbeelden
+Stel na deze stap voor:
+- 10 tot 15 **power words** die passen bij het merk (woorden die je graag gebruikt)
+- 5 tot 8 **verboden woorden** die het merk nooit zou gebruiken
 
-Dit is het hart van het document, hier maak je de tone of voice tastbaar met concrete voorbeelden.
+Vraag feedback en pas aan.
+
+**Blok 4 — Per kanaal**
+
+> "Elk kanaal heeft zijn eigen dynamiek, maar de kern van de stem blijft hetzelfde. Welke kanalen zijn voor jou belangrijk, en wat verschilt per kanaal?"
+
+Twee deelvragen:
+1. Welke kanalen (multiSelect: website, LinkedIn, Instagram, Facebook, TikTok, YouTube, e-mail / nieuwsbrief, advertenties, telefoon / persoonlijk, podcast, Anders)
+2. Per gekozen kanaal: welk type content overheerst (bijv. korte updates, lange educatieve posts, productfoto's, video)
+
+Werk per gekozen kanaal uit:
+- Eén alinea richtlijn (lengte, toon-accent, format-specifieks zoals hashtags, emoji's, CTA-stijl)
+- Eén voorbeeldtekst in de tot nu toe vastgestelde stem
+
+Doe dit in blokken van 2 tot 3 kanalen per ronde als de ondernemer er veel kiest. Vraag bevestiging per blok.
+
+Sluit Blok 4 af met: "Wat blijft altijd hetzelfde op elk kanaal?" en "Wat verschilt per kanaal?". Vat in 3 tot 5 bullets samen.
+
+**Blok 5 — Per situatie**
+
+> "Hoe een merk klinkt hangt ook af van de situatie. Goed nieuws delen vraagt een andere toon dan een klacht beantwoorden. Welke situaties komen bij jou veel voor?"
+
+Eén keuzeblok:
+1. Welke situaties (multiSelect: goed nieuws delen, slecht nieuws of fouten communiceren, klachten beantwoorden, verkopen of overtuigen, informeren en uitleggen, inspireren en motiveren, hulp aanbieden, Anders)
+
+Per gekozen situatie: schrijf één concrete voorbeeldtekst (2 tot 4 zinnen) in de vastgestelde stem. Doe dit in blokken van 2 tot 3 situaties per ronde.
+
+**Blok 6 — Schrijfregels en stijldetails**
+
+> "Tot slot de details. Consistentie in kleine dingen maakt het verschil tussen amateur en professioneel."
+
+Vier keuzeblokken:
+1. Hoofdletters in koppen (alleen eerste woord (Aanbevolen), elk belangrijk woord, alles lowercase, Anders)
+2. Getallen (altijd uitschrijven, tot 10 uitschrijven daarna cijfers (Aanbevolen), altijd cijfers, Anders)
+3. Actief of passief (actief 'wij helpen jou' (Aanbevolen), passief 'je wordt geholpen', mix, Anders)
+4. Em-dashes en streepjes (geen em-dashes (Aanbevolen, in lijn met Upscailed-conventie), wel gebruiken, alleen voor pauzes, Anders)
+
+Extra (optioneel, één keuzeblok):
+5. Andere stijlregels (maximale zinslengte, uitroeptekens, headerstijl, Anders)
+
+### Stap 5: Do's & Don'ts samenstellen
+
+Dit is het hart van het document. Hier maak je de tone of voice tastbaar.
 
 Stel op basis van alle voorgaande keuzes:
-- Minimaal 5 do's met voorbeeldzinnen
-- Minimaal 5 don'ts met voorbeeldzinnen
-- Per do/don't: een "zo wel" en een "zo niet" variant van dezelfde boodschap
+- **Minimaal 5 do's** met voorbeeldzinnen
+- **Minimaal 5 don'ts** met voorbeeldzinnen
+- Per paar: een "zo wel" en een "zo niet" variant van dezelfde boodschap, zodat het verschil voelbaar wordt
 
-Presenteer ze als overzicht en vraag via keuzeblok:
-1. "Kloppen deze do's & don'ts?" (keuzeblok: ja klopt helemaal, een paar aanpassingen nodig, wil er meer toevoegen + Anders)
+Voorbeeldformat:
+```
+✅ DO: Schrijf in actieve zinnen.
+   "Wij helpen MKB-ondernemers AI praktisch toepassen."
+❌ DON'T: Vermijd passieve constructies.
+   "MKB-ondernemers worden door ons geholpen met AI."
+```
 
-Verfijn op basis van feedback.
+Presenteer de lijst en vraag via keuzeblok: "Kloppen deze do's & don'ts? Mist er iets, of moet er iets weg?"
 
-### Stap 6: Tone of Voice per Kanaal
+Verfijn op basis van feedback. Doel is dat de lijst zelfstandig leesbaar is, dus zonder de rest van het document, en dat iemand binnen 2 minuten begrijpt hoe het merk klinkt.
 
-Elk kanaal heeft zijn eigen dynamiek, maar de kern van je stem blijft hetzelfde.
+**Minimum-eis voor SCALE-audit S3:** ten minste 1 Do en 1 Don't met voorbeeldzin. Met 5+5 zit je daar ruim boven.
 
-**Vraagblokken:**
-1. "Op welke kanalen communiceert je bedrijf?" (multiSelect: website, Instagram, LinkedIn, Facebook, TikTok, e-mail/nieuwsbrief, advertenties, telefoon/persoonlijk + Anders)
+### Stap 6: Merkstem-check
 
-Per gekozen kanaal: schrijf specifieke richtlijnen + een voorbeeldtekst. Doe dit in blokken van 2-3 kanalen per ronde.
+Nu testen we of de tone of voice werkt in de praktijk. Schrijf 3 voorbeeldteksten in de tot nu toe vastgestelde stem:
 
-Sluit af met een overzicht: "Wat blijft altijd hetzelfde op elk kanaal?" en "Wat verschilt per kanaal?"
+1. Een **social media post** (LinkedIn of het primaire kanaal van de ondernemer), 80 tot 150 woorden
+2. Een **e-mail aan een klant** (welkomstmail, follow-up of klantvraag-reactie), 100 tot 200 woorden
+3. Een **website-tekst** (een hero-paragraaf of een dienst-uitleg), 80 tot 150 woorden
 
-### Stap 7: Tone of Voice per Situatie
+Presenteer de drie teksten en vraag via keuzeblok:
+"Hoe klinken deze voorbeeldteksten?"
+- "Perfect, dit is onze stem"
+- "Bijna goed, kleine aanpassingen"
+- "Nog niet helemaal, wil meer feedback geven"
+- "Anders, namelijk..."
 
-Hoe je merk klinkt hangt ook af van de situatie. Goed nieuws delen vraagt een andere toon dan een klacht beantwoorden.
+Verfijn op basis van feedback. Loop maximaal 2 verfijn-rondes door, daarna landen op het document.
 
-**Vraagblokken:**
-1. "Welke situaties komen bij jullie het meest voor?" (multiSelect: goed nieuws delen, slecht nieuws/fouten communiceren, klachten beantwoorden, verkopen/overtuigen, informeren/uitleggen, inspireren/motiveren + Anders)
+### Stap 7: Document opslaan + hergebruik-tips
 
-Per gekozen situatie: schrijf een concrete voorbeeldtekst in de vastgestelde tone of voice. Vraag feedback per situatie.
+Stel het complete Tone of Voice-document samen met deze structuur:
 
-### Stap 8: Schrijfregels & Stijlafspraken
+```markdown
+# Tone of Voice — <Bedrijfsnaam>
 
-Consistentie in de details maakt het verschil tussen amateur en professioneel.
-
-**Vraagblokken:**
-1. "Hoofdletters in koppen?" (keuzeblok: alleen eerste woord, elk belangrijk woord, alles lowercase + Anders)
-2. "Getallen: uitschrijven of cijfers?" (keuzeblok: altijd uitschrijven, tot 10 uitschrijven daarna cijfers, altijd cijfers + Anders)
-3. "Actief of passief taalgebruik?" (keuzeblok: actief 'wij helpen jou' (Aanbevolen), passief 'je wordt geholpen', mix van beide + Anders)
-4. "Maximale zinslengte?" (keuzeblok: kort max 15 woorden, gemiddeld max 25 woorden, geen strikte limiet + Anders)
-
-### Stap 9: Merkstem-check & Kwaliteitstest
-
-Nu testen we of de tone of voice werkt in de praktijk.
-
-1. Stel een checklist samen: "Klinkt dit als ons merk?" (5-7 ja/nee vragen gebaseerd op alle gemaakte keuzes)
-2. Schrijf 3 voorbeeldteksten in de vastgestelde tone of voice:
-   - Een social media post
-   - Een e-mail aan een klant
-   - Een tekst voor de website
-
-Presenteer ze en vraag via keuzeblok:
-1. "Hoe klinken deze voorbeeldteksten?" (keuzeblok: perfect dit is onze stem, bijna goed kleine aanpassingen, nog niet helemaal wil meer feedback geven + Anders)
-
-Verfijn op basis van feedback totdat de gebruiker tevreden is.
-
-### Stap 10: Samenvatting & Quick Reference Card
-
-De afronding: alles samenvatten in een overzichtelijk geheel.
-
-Stel samen:
+## Quick Reference Card
 - Tone of Voice in één zin
-- De 3-5 kernwoorden van de merkstem
-- De belangrijkste do's & don'ts op een rij
-- Vuistregels die iedereen direct kan toepassen
-- Een gouden regel: "Als je twijfelt, kies dan voor..."
+- 3 tot 5 kernwoorden van de merkstem
+- De gouden regel: "Als je twijfelt, kies dan voor..."
 
-Vraag via keuzeblok:
-1. "Is de samenvatting compleet?" (keuzeblok: ja maak het document, nog kleine aanpassingen, wil nog iets toevoegen + Anders)
+## Merkpersoonlijkheid
+- Type-archetype + 3 tot 4 zinnen persona-omschrijving
+- Karaktertrekken die wél passen
+- Karaktertrekken die NIET passen
 
-## Output
+## Tone of Voice-dimensies
+| Dimensie | Positie | Voorbeeldzin |
+|---|---|---|
+| Formeel ↔ Informeel | ... | ... |
+| (alle 7 dimensies) | | |
 
-Na alle stappen: stel een compleet Tone of Voice document samen als Markdown-bestand met:
-- Een overzichtelijke structuur met duidelijke koppen
-- Concrete voorbeeldzinnen bij elk onderdeel
-- Een Quick Reference Card bovenaan die je kunt printen of delen
-- Een overzicht van welke onderdelen eventueel nog doorontwikkeld kunnen worden
+## Taalgebruik & woordkeuze
+- Aanspreking
+- Vakjargon
+- Zinslengte
+- Humor
+- Emoji's (indien van toepassing)
+- Engelse woorden
+- Power words
+- Verboden woorden
 
-Sla het resultaat op op een logische plek, bijvoorbeeld `<bedrijfsnaam>-tone-of-voice.md` of in een `playbook/`-map binnen het project.
+## Do's & Don'ts
+5 tot 10 paren met voorbeeldzinnen, "zo wel" / "zo niet"
 
-## Stappen overslaan
+## Per kanaal
+Per gekozen kanaal: richtlijn + voorbeeldtekst
 
-Niet elke stap is relevant voor elk bedrijf. Als een stap niet van toepassing is, sla die dan over maar leg kort uit waarom. Vraag altijd via een keuzeblok of de gebruiker het ermee eens is.
+## Per situatie
+Per gekozen situatie: voorbeeldtekst
+
+## Schrijfregels
+- Hoofdletters
+- Getallen
+- Actief / passief
+- Em-dashes
+- Zinslengte-limiet
+- Overige regels
+
+## Voorbeeldteksten (uit de check)
+De drie definitieve voorbeeldteksten (social, e-mail, website)
+
+## Bijhouden
+Korte sectie: deze ToV is een levend document. Update bij grote merkverandering, na 12 maanden, of als er aantoonbaar veel buiten de stem geschreven wordt.
+```
+
+Sla het op als `{scope}/Directie/Playbook/Tone of Voice.md` (maak de Playbook-map aan als die nog niet bestaat).
+
+Frontmatter:
+```yaml
+---
+type: playbook
+bedrijf: <Naam>
+onderwerp: Tone of Voice
+status: definitief (v1.0)
+versie: 1.0
+laatst bijgewerkt: YYYY-MM-DD
+---
+```
+
+Onderaan een sectie **"Hergebruik van dit document"** met concrete suggesties:
+
+- Welk deel deel je met een tekstschrijver / content-collega / freelancer
+- Welk deel hangt naast je beeldscherm of in Notion als snel-check
+- Welk deel voer je in een AI-systeemprompt zodat je content-AI automatisch in deze stem schrijft
+- Welk deel gebruik je als kwaliteitscheck voor bestaande website-teksten
+
+**Logging:**
+1. Werk het bedrijfs-changelog bij: `{scope}/Directie/Changelog.md`
+2. Werk de daily van vandaag bij onder *Gedaan vandaag → [Bedrijf]*
+3. Als de scope een SCALE-audit-rapport heeft met S3 op ❌ of ⚠️: stel voor om de audit opnieuw te draaien, of werk de status handmatig bij naar ✅
+4. Als de scope een `01 - Goals.md` heeft met een ToV-doel voor dit kwartaal: vink af / werk status bij
+5. Als er een `brand-guidelines`-skill nog niet gedraaid is (S2 nog open): wijs daar op, want ToV en Brand Guidelines versterken elkaar
+
+## Schrijfregels voor het output-document
+
+Wanneer je het Tone of Voice-document zelf opstelt (Stap 7):
+
+- Werk in het **Nederlands**, tenzij de Brand Guidelines van het bedrijf anders voorschrijven
+- **Geen em-dashes** (—) in de prose. Gebruik gewone losse zinnen, komma's of haakjes
+- **Geen marketing-superlatieven** ("revolutionair", "disruptief", "next-level", "game-changing"). Hou het feitelijk en menselijk
+- **Concrete voorbeelden** > abstracte beweringen. "Schrijf 'wij maken AI werkbaar voor MKB' niet 'wij ontsluiten transformatieve potentie'" > "vermijd vakjargon"
+- **Tweede persoon (je / jij)** in het document zelf (de gids leest mee als instructie naar de ondernemer), tenzij het bedrijf u-vorm hanteert
+- **Kop-zinnen kort** (3 tot 6 woorden), helder, eigen aan het merk
+- **Tabellen waar het kan**: dimensies, do's/don'ts, kanaalrichtlijnen, power words versus verboden woorden
 
 ## Belangrijke regels
 
-- Als de gebruiker ergens geen antwoord op heeft, help dan met suggesties op basis van wat je al weet over het merk.
-- Wees eerlijk als keuzes niet bij elkaar passen of als de tone of voice niet consistent is.
-- Vraag of de gebruiker bestanden wil uploaden als dat nuttig is (bestaande teksten, huisstijl, inspiratievoorbeelden).
-- Zorg dat het eindresultaat direct bruikbaar is, niet alleen beschrijvend, maar met genoeg voorbeelden om het toe te passen.
-- Wacht altijd op antwoorden voordat je verdergaat naar de volgende stap.
+- **Eén blok per beurt** in het interview. Niet alle vragen tegelijk neerzetten. Wachten op antwoord, dan pas door
+- **Bestaande bronnen eerst.** Vraag nooit naar iets dat al in de vault staat. Pre-fill-validatie in Stap 3 voorkomt dat
+- **Schrijf nooit zomaar over een bestaand Tone of Voice.md heen** zonder dat de gebruiker bevestigt dat de oude versie weg mag of gearchiveerd moet worden
+- **Voorbeeldzinnen, geen abstracte regels.** Bij elke keuze die de ondernemer maakt: schrijf direct één voorbeeldzin in die stijl, zodat het verschil voelbaar wordt
+- **Eerlijk bij inconsistenties.** Als de ondernemer "warm en persoonlijk" kiest maar ook "formeel en zakelijk", wijs op de spanning en help kiezen
+- **Concreet > vaag.** Bij elk antwoord: vraag één keer door op een concreet detail (een woord, een voorbeeldzin, een merk-met-vergelijkbare-stem) als het te abstract blijft. Eén keer doorvragen, niet drie keer
+- **200 woorden minimum** voor SCALE-audit S3. Doel hier is een document van 1500 tot 3000 woorden, inclusief tabellen en voorbeelden
+- **Minstens 1 Do en 1 Don't met voorbeeldzin** is de SCALE-audit-eis. Doel hier is 5 plus 5
+- **Respect voor de stem van de ondernemer.** Als hij of zij in het interview een specifieke uitdrukking gebruikt die past bij het merk ("we maken AI werkbaar", "geen hype-machine"): vang die op en verwerk in het document
+
+## Voorbeeld-output
+
+Bij de eerste live test op deze skill: voer de skill uit op Upscailed-scope. De output landt in `Bedrijven/Upscailed/Directie/Playbook/Tone of Voice.md` en kan dan dienen als referentie-voorbeeld voor toekomstige iteraties van deze skill.
+
+Wat een goed ToV-document laat zien:
+- Quick Reference Card van max 1 A4 die je naast je scherm kunt hangen
+- Per dimensie een echte voorbeeldzin, niet alleen een schaal-positie
+- Do's en Don'ts die naar voorbeeldzinnen verwijzen, geen abstracte regels
+- Per kanaal duidelijk wat verschilt, niet alleen wat hetzelfde blijft
+- Hergebruik-sectie die de stap maakt van document naar dagelijkse praktijk
+
+## Wat dit niet is
+
+- Geen volledige Brand Guidelines. Visuele identiteit (kleuren, typografie, logo, beeldgebruik) hoort in de `brand-guidelines`-skill
+- Geen tekstschrijver-skill. Deze gids legt de regels vast, schrijft niet zelf alle content voor het bedrijf
+- Geen marketing-strategie. Hoe vaak je post, op welke momenten, met welke campagnes, dat is een andere skill (content-roadmap of marketing-strategie)
+- Geen rebrand-skill. Bij een grote merkverandering eerst de positionering opnieuw bepalen, daarna ToV bijwerken
