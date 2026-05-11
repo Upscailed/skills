@@ -387,9 +387,9 @@ Sla op als:
 
 Maak de map aan als die nog niet bestaat.
 
-### Stap 6: Test-cases draaien
+### Stap 6: Test-cases draaien (VERPLICHT, niet skipbaar)
 
-Draai de 3 testprompts uit stap 4 één voor één tegen de zojuist geschreven skill. **Niet automatiseren, niet bulk**: handmatig, één voor één, met de ondernemer mee-lezend.
+Deze stap is **vereist**, geen optionele toevoeging. Een skill zonder test-evaluatie is niet leverbaar. Draai de 3 testprompts uit stap 4 één voor één tegen de zojuist geschreven skill. **Niet automatiseren, niet bulk**: handmatig, één voor één, met de ondernemer mee-lezend.
 
 Per testprompt:
 1. Lees de prompt hardop voor (of laat de ondernemer hem typen).
@@ -406,9 +406,9 @@ Schrijf per testprompt op wat er werkte en wat niet. Dit wordt input voor stap 7
 
 **Speciale aandacht: variatie tussen testprompts.** Als alle drie testprompts identiek geformuleerd zijn, test je niets. Een echte test heeft variatie in framing, in concreetheid, in eindgebruiker.
 
-### Stap 7: Feedback-loop
+### Stap 7: Feedback-loop (VERPLICHT, niet skipbaar)
 
-Per faal-punt uit stap 6: wat moet duidelijker in de skill? **Bijschaven, niet herschrijven.**
+Deze stap is **vereist**. Zonder feedback-loop op de testresultaten levert de skill geen kwaliteitsborging. Per faal-punt uit stap 6: wat moet duidelijker in de skill? **Bijschaven, niet herschrijven.**
 
 Veelvoorkomende patronen en hun fix:
 
@@ -426,6 +426,8 @@ Veelvoorkomende patronen en hun fix:
 **Belangrijke regel:** wijzig **maximaal 3 dingen tegelijk**. Pas dan opnieuw testen. Wijzig je 10 dingen tegelijk, weet je niet wat de fix was.
 
 Loop stap 6 en 7 één keer opnieuw na elke fix-ronde. Maximaal 3 fix-rondes per sessie. Werkt de skill na 3 rondes nog niet, terug naar stap 4 (PRD) want het ontwerp klopt niet.
+
+**Niet leveren zonder minimaal 3 testprompts gedraaid** te hebben. Een skill zonder evaluatie is een skill zonder kwaliteitsborging.
 
 ### Stap 8: Polish
 

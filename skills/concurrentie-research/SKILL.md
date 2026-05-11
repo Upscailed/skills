@@ -325,6 +325,17 @@ Logging:
 2. Werk de daily van vandaag bij onder "Gedaan vandaag"
 3. Als er een SCALE-audit staat met C6 op ❌ of ⚠️: stel voor om de audit opnieuw te draaien
 
+## Externe of fictieve klant modus
+
+Niet elke gebruiker is een van Iwan's bedrijven met een ingerichte vault. Als de skill wordt aangeroepen voor een extern bedrijf, een fictieve case of een evaluatie:
+
+- Skip de vault-scan stap (Stap 2). Gebruik wat in het prompt staat (sector, doelgroep, aanbod) plus publieke kennis via WebSearch en WebFetch als enige bronnen.
+- Bij ontbrekende context over de eigen positie of ICP: vul in met realistische aannames plus expliciete `[VERIFICEREN]`-marker. Concurrentie-profielen blijven feitelijk op basis van wat publiek vindbaar is.
+- Schrijf de deliverable naar het opgegeven output-pad, niet naar `{scope}/...`-paden in een vault die niet bestaat.
+- Verwijs naar gerelateerde SCALE-skills (S6 SWOT, A5 Benchmarking) in een aparte sectie "Aanbevolen vervolgstappen", zonder ze automatisch uit te voeren.
+- Skip changelog-, daily- en vault-mutaties die normaal in Stap 6 gebeuren.
+- Sluit af met een "Open punten ter verificatie"-blok dat alle [VERIFICEREN]-velden op één plek lijst, vooral voor niet-publieke gegevens (intern prijsmodel concurrent, klantomvang, marge).
+
 ## Belangrijke regels
 
 - **Vault eerst.** Zoek nooit naar informatie die al in de vault staat. Bouw het concurrentieprofiel op vanuit wat al bekend is over het bedrijf.

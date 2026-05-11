@@ -157,6 +157,8 @@ Lees systematisch de volgende documenten als ze bestaan, en vat daarna samen wat
 | **Optioneel:** een cross-bedrijf strategie-bestand als de gebruiker meerdere bedrijven heeft (vraag actief). Skip stilletjes als enkel-bedrijf-context. | Cross-bedrijf richting, dwarsverbanden |
 | **Optioneel:** een centraal afsprakenbestand met personen-namen (vraag actief — bv. `Persoonlijk/Afspraken AI.md` of een Notion-page). Skip stilletjes als dit nergens bestaat. | Mede-oprichters, mentoren, rollen |
 
+**Scan ook actief naar persoonlijke laag-bronnen:** `00 - Over [Eigenaar].md`, `About.md`, `biografie.md`, `Persoonlijk/Over Iwan.md` (of equivalente eigenaar-naam), persoonlijke pagina op de website (vraag URL), LinkedIn-profiel van de eigenaar, eerdere interviews of podcasts. Deze bronnen zijn essentieel voor solopreneurs, omdat hun bedrijfsverhaal vrijwel altijd vertrekt vanuit hun persoonlijke waarom, achtergrond en levensloop. Zonder deze laag wordt het verhaal vlak. Skip stilletjes als geen van de bronnen vindbaar is, maar markeer dan intern dat blok 5 (persoonlijk waarom) extra zorg nodig heeft in het interview.
+
 Maak een interne aantekening per bron: wat er staat, en wat er specifiek raakt aan het verhaal.
 
 **Plus: extern materiaal opvragen.** Vraag aan het einde van deze stap actief of de gebruiker externe documenten of bronnen heeft die het verhaal voeden — een eerdere About-pagina (URL), een blogpost over de oprichting, een interview, een ouder pitch-deck, een LinkedIn-bedrijfspagina, een website-tekst. URL's mag je via web-fetch ophalen, PDF's of geplakte tekst mag de gebruiker direct aanleveren. Voeg alles toe aan de samenvatting in stap 3 — voor veel ondernemers staat een groot deel van hun verhaal al ergens, alleen versnipperd.

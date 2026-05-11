@@ -29,6 +29,15 @@ Helpt een ondernemer om in 60 tot 120 minuten zijn losse automatiseringen (Make-
 
 Resultaat: SCALE-audit E3 springt van rood of geel naar groen, er ligt één centraal `Engineer/Workflow-Pipeline.md` met diagram en specs, en de ondernemer weet welke orchestratie-laag past, welke migratie-stappen nodig zijn, en wie elke workflow monitort.
 
+## Twee toepassingsdomeinen
+
+Deze skill werkt voor twee soorten pipelines. Bij start vraagt de skill expliciet welk domein van toepassing is (A of B) en past de terminologie en deliverables daarop aan.
+
+- **A. Software-orchestratie:** scripts, n8n, Zapier, Make, API-koppelingen, AI-skills en cron-jobs. Doel: bestaande automatiseringen consolideren in één keten met state, retries, observability en versionering in Git.
+- **B. Operationele dienstverlening-pipeline:** een handmatige werkflow (bijvoorbeeld fotografie-bewerking, advies-traject, productie-proces, klant-onboarding) gemodelleerd als Kanban-board met fases, WIP-limits, exit-criteria per fase en duidelijke handover-momenten. Geen scripts, geen orchestratie-tool, alleen proces-discipline.
+
+Bij domein B vervalt de orchestratie-tool-keuze (blok 3) en komt er in plaats daarvan een Kanban-board-spec (fases, WIP-limits, exit-criteria, owner per fase, doorlooptijd-doel per fase). De andere blokken blijven inhoudelijk, maar "trigger" wordt "instroom-criterium", "exception-handling" wordt "escalatie-procedure", "retry" wordt "rework-loop".
+
 ## De zes pipeline-onderdelen
 
 Elke pipeline-spec heeft deze zes onderdelen. De skill werkt ze één voor één uit.
@@ -199,8 +208,9 @@ Verwacht varianten:
 Vraag de gebruiker:
 1. Wat is de naam van het bedrijf waar deze pipeline voor is?
 2. Wat is het **pad naar de bedrijfs-root**? (De huidige werkmap, een specifiek pad, of "ik weet het niet, help me zoeken".)
+3. **Welk toepassingsdomein** (A of B)? A = software-orchestratie (scripts, n8n, Zapier, API-koppelingen). B = operationele dienstverlening-pipeline (handmatige werkflow als Kanban-board met fases, WIP-limits en exit-criteria, denk aan fotografie-bewerking, advies-traject, productie-proces). Bij twijfel: omschrijf in één zin het proces, dan stel ik het domein voor. Het domein bepaalt de terminologie en welke blokken in stap 5 aan bod komen.
 
-Als de gebruiker niet weet wat het pad is: zoek in de huidige werkmap naar een map met de bedrijfsnaam, of naar een `Leverage/`-map. Bevestig de gevonden scope voordat je doorgaat.
+Als de gebruiker niet weet wat het pad is: zoek in de huidige werkmap naar een map met de bedrijfsnaam, of naar een `Leverage/`-map. Bevestig de gevonden scope en het gekozen domein voordat je doorgaat.
 
 Controleer:
 - Of `{scope}/Leverage/` bestaat en gevuld is. **Geen Leverage/ of leeg → stop en stuur door naar L1 (`sop-automatiseren`).** E3 vereist L1 als input.

@@ -525,6 +525,22 @@ Vervolgsuggesties die je altijd noemt:
 - **Workflow-pipeline (E3):** als de roadmap een eind-tot-eind-flow opvoert die meerdere automatiseringen koppelt, stel voor met **E3** (`workflow-pipeline`) te scopen.
 - **Review-ritme:** een automatiserings-roadmap veroudert sneller dan een SOP. Stel voor om de roadmap **maandelijks bij te werken** met wat gebouwd is, wat gefaald is, en welke nieuwe kansen ontstaan. Suggesteer een check op de eerste maandag van elke maand.
 
+## Cold-start en fictieve-klant modus
+
+De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situaties werkt dat anders:
+
+**Autonome / 1-shot run** (bijvoorbeeld voor evaluaties, bulk-bouw of als de gebruiker expliciet "doe alles in 1 keer" zegt):
+- Sla het interview over en gebruik wat in het prompt staat als enige bron.
+- Vul ontbrekende velden in met realistische defaults plus expliciete `[VERIFICEREN]`-marker.
+- Lever de complete deliverable, niet alleen aanbevelingen.
+- Voeg onderaan een sectie "Open punten" toe met alle [VERIFICEREN]-velden, zodat de gebruiker weet wat hij later moet bevestigen.
+
+**Fictieve klant of cold-start (geen bestaande vault):**
+- Vraag NIET naar bedrijfsgegevens die in een eerste gesprek logisch te achterhalen zijn; gebruik wat in het prompt staat plus defaults.
+- Schrijf de deliverable in de gevraagde output-map, niet in `{scope}/...`-paden.
+- Vermeld cross-links naar andere SCALE-stappen als `[VERIFICEREN]` zonder ze in te vullen.
+- Skip changelog-updates en daily-log-updates die normaal aan het eind gebeuren.
+
 ## Belangrijke regels
 
 - **Geen SOP, geen L1.** Zonder bestaande SOP in `Operations/Processen/` stuurt de skill terug naar S10. L1 bouwt niet op niets.

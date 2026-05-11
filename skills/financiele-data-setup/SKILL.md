@@ -237,6 +237,8 @@ Standaard SCALE-paden om te controleren:
 
 Maak per gevonden bron een korte interne aantekening: welk van de 6 blokken het raakt en welke kerngegevens al bekend zijn (welk boekhoudpakket, welk betalingsplatform, BTW-regime, aantal FTE).
 
+**Indien split-stack** (bijvoorbeeld e-Boekhouden voor boekhouding + Moneybird als factuur-tool + bank apart via PSD2, of Exact + Yuki + Stripe, of elke andere combinatie waarbij boekhouding, factuur-tool en bank niet één geïntegreerd pakket vormen): documenteer ELKE bron als aparte rij in de bronnen-tabel, met expliciete koppelingen tussen-bronnen (bijv. *"Moneybird-facturen → e-Boekhouden via maandelijkse factuurexport (CSV) door boekhouder, handmatige stap"*, of *"bank → e-Boekhouden via PSD2-koppeling, automatisch dagelijks"*). Markeer ontbrekende of handmatige koppelingen expliciet als **risico** in een aparte sectie "Koppel-risico's", omdat handmatige stappen de meest voorkomende bron zijn van cijfer-discrepanties tussen rapportages.
+
 **Belangrijk:** als een bron niet bestaat, skip stilletjes. Niet alarmeren, niet doorvragen aan de gebruiker. Werk met wat er is.
 
 Vul daarna onderstaand intern overzicht in:

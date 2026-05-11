@@ -330,6 +330,15 @@ Kernvragen:
 3. Welk moment is volgens jou nu het meest urgent — waar mis je het meeste signaal?
 4. Wil je voor elk moment een ander feedback-type, of werk je met één centrale meting? (Bv. één NPS-mail per kwartaal voor alles, of CSAT per specifieke touchpoint.)
 
+**Sector-specifieke momenten (voorbeelden):**
+- **Retail / e-commerce:** toonbank-QR direct na aankoop, bezorg-sticker bij levering (QR op pakbon), follow-up-mail 7 dagen na aankoop voor productreview, retour-formulier met reden.
+- **Horeca:** tafel-QR na maaltijd, takeaway-bon-QR, reservering-follow-up de dag na bezoek.
+- **SaaS / B2B:** feature-eerste-gebruik (in-app micro-survey), einde onboarding (dag 14), contract-verleng-moment (60 dagen voor verlenging), churn-exit-interview.
+- **Dienstverlening / consultancy:** na elke oplevering (CSAT op specifieke output), kwartaal-relatie-check, jaarlijks NPS, na elke escalatie of klacht-resolutie.
+- **Zorg / coaching:** na intake-gesprek, na elke sessie korte 1-vraag-CSAT, na afronding traject lange evaluatie.
+
+Kies de momenten die passen bij de **sector** van de klant. Forceer geen SaaS-momenten op een retail-bedrijf of andersom.
+
 Maak de uiteindelijke lijst van feedback-momenten compact — 3 tot 6 momenten is realistisch voor een eerste versie. Meer wordt onbeheersbaar.
 
 #### Blok 3 — Feedback-types

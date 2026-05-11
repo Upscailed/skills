@@ -252,7 +252,7 @@ Als de gebruiker het pad niet weet: zoek in de huidige werkmap naar een map met 
 
 **Verplicht: check of `{scope}/Analyze/Mission-Control-Ontwerp.md` bestaat.**
 
-- Bestaat niet → **stop direct, geef A2-aanrader.** Voorbeeld-melding: *"Voor E1 heb ik het Mission Control-ontwerp uit A2 nodig: zonder dat document weet ik niet welke tegels op het dashboard staan, welke bron per tegel, en welke refresh-frequentie. Laat me eerst de skill `mission-control-builder` (A2) draaien zodat we `Analyze/Mission-Control-Ontwerp.md` opbouwen, daarna kunnen we hier verder."* Schrijf geen lege Dashboard-Bouwer-Spec.md.
+- Bestaat niet → **bied de gebruiker een keuze:** (A) eerst A2 doen via `mission-control-builder` zodat `Analyze/Mission-Control-Ontwerp.md` netjes opgebouwd wordt en daarna terugkomen, of (B) doorgaan met defaults (5-7 hero-KPI-tegels, 3 trends, 3 alerts, 1 goals-strip op basis van een redelijke MKB-mix) en alle data-velden, tegels en bron-koppelingen markeren als `[VERIFICEREN]` in de bouw-spec. **Bij autonome run (1-shot of fictieve klant): kies altijd B**, zonder de gebruiker te bevragen. Documenteer de keuze in de bouw-spec onder een sectie "A2-status".
 - Bestaat wel → lees het document volledig in en doorloop alle tegels (hero-KPI's, trends, alerts, goals, activity-feed) plus de tool-keuze en refresh-matrix. Dit is de primaire input voor stap 4 en 6.
 
 Controleer daarna of `{scope}/Engineer/Dashboard-Bouwer-Spec.md` al bestaat:

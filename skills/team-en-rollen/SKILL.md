@@ -326,6 +326,22 @@ Vervolgsuggesties die je altijd noemt:
 - **Daarna Leverage-skills** — gebruik de AI-leverage-kans-kolom als startpunt: pak de eerste rol met score "Hoog" en kijk welke deelflow als eerste kan worden overgedragen.
 - **Review-ritme** — een Team.md veroudert. Stel voor om hem te updaten bij elk van deze gebeurtenissen: nieuwe medewerker, structurele rolwissel, een rol die richting AI / VA wordt overgedragen, of bij de kwartaal-review.
 
+## Cold-start en fictieve-klant modus
+
+De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situaties werkt dat anders:
+
+**Autonome / 1-shot run** (bijvoorbeeld voor evaluaties, bulk-bouw of als de gebruiker expliciet "doe alles in 1 keer" zegt):
+- Sla het interview over en gebruik wat in het prompt staat als enige bron.
+- Vul ontbrekende velden in met realistische defaults plus expliciete `[VERIFICEREN]`-marker.
+- Lever de complete deliverable, niet alleen aanbevelingen.
+- Voeg onderaan een sectie "Open punten" toe met alle [VERIFICEREN]-velden, zodat de gebruiker weet wat hij later moet bevestigen.
+
+**Fictieve klant of cold-start (geen bestaande vault):**
+- Vraag NIET naar bedrijfsgegevens die in een eerste gesprek logisch te achterhalen zijn; gebruik wat in het prompt staat plus defaults.
+- Schrijf de deliverable in de gevraagde output-map, niet in `{scope}/...`-paden.
+- Vermeld cross-links naar andere SCALE-stappen als `[VERIFICEREN]` zonder ze in te vullen.
+- Skip changelog-updates en daily-log-updates die normaal aan het eind gebeuren.
+
 ## Belangrijke regels
 
 - **Eén rol per beurt** in het interview (variant A) of één persoon per beurt (variant B/C). Niet alle vragen tegelijk neerzetten. Wachten op antwoord, dan pas door.

@@ -201,6 +201,8 @@ Vraag in totaal 3-7 vragen — niet meer. Als velden onbeantwoordbaar blijven: l
 
 Vul het template in `references/template-kvk-administratie.md` volledig in met de verzamelde gegevens. Vervang elk `[placeholder]` door de werkelijke waarde. Laat `[VERIFICEREN]` zichtbaar staan op plekken waar pre-fill en interview samen geen waarde opleverden.
 
+**Rechtsvorm-secties (sectie 5 Bestuur en eigenaarschap, sectie 6 Kapitaal en aandelen):** render ALLEEN de subsectie voor de gekozen rechtsvorm. Bij BV: skip subsecties voor EZ en VOF. Bij EZ: skip subsecties voor BV en VOF. Bij VOF/Maatschap: skip subsecties voor EZ en BV. Sectie 6 (Kapitaal en aandelen) is uitsluitend voor BV en wordt bij andere rechtsvormen volledig weggelaten. Zo blijft het document compact en relevant per rechtsvorm.
+
 Zorg dat de privacy-disclaimer en de "intern gebruik"-vlag bovenaan het document staan. Voeg ook de cross-links naar J3/J4/J5 toe (bestand-paden binnen dezelfde scope), zodat die documenten dit bestand kunnen aanroepen.
 
 ### Stap 5: Opslaan + aanbevelingen

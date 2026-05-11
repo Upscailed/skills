@@ -1,7 +1,7 @@
 ---
 name: operationele-kpis
 title: "Operationele KPI's"
-description: "Helpt een ondernemer in 30 tot 50 minuten een set operationele KPI's vast te leggen in één canoniek document: `Operations/KPIs.md`. Dit is SCALE-stap C7 (Collect) en het ontbrekende stuk tussen verkoop-data (C2 CRM) en financiele data (C3) en het werkelijke draaien van het bedrijf. Operationele KPI's meten of de **uitvoering** op koers ligt, niet of de verkoop loopt of de cijfers kloppen: doorlooptijd per project of order, on-time-in-full leveringen, kwaliteits-incidenten, herwerk-percentage, capaciteits-benutting, first-response-time op klantvragen, SLA-naleving, ziekteverzuim, retentie, foutpercentage facturatie. De skill werkt via een gestructureerd interview in 4 afdelingsblokken (Dienstverlening/Productie, Klantenservice, HR/Team, Operations/Backoffice), één blok per beurt zodat de gebruiker niet wordt overweldigd. Per gekozen KPI worden zeven velden vastgelegd: naam, definitie (formule en hoe gemeten), bron (welke tool of persoon), frequentie (realtime, dag, week, maand), eigenaar (rol of persoon uit HR/Team.md), normwaarde met groen/oranje/rood drempels, en gewenste trend-richting. Vóór het interview begint, scant de skill diep wat al beschikbaar is in de vault: `Operations/Processen/` voor SOPs met meetpunten, `HR/Team.md` voor eigenaren per rol, `IT/Toolstack.md` voor data-bronnen, `Directie/00 - Overzicht.md` voor genoemde succes-indicatoren, en `Directie/01 - Goals.md` voor jaardoelen die KPI-vertaling vragen. Werkt vault-onafhankelijk: er worden geen aannames gedaan over een specifieke mapnaam of vault-eigenaar, alleen over SCALE-Structure-conventies (`Operations/`, `HR/`, `IT/`, `Directie/`). Activeer altijd wanneer iemand zegt: 'KPIs bepalen', 'operationele metrics', 'wat ga ik meten', 'operationele KPIs', 'KPI dashboard opzetten', 'uitvoeringsmetrics', 'doorlooptijd meten', 'OTIF instellen', 'kwaliteits-KPIs', 'service-level metrics', 'C7 dichten in SCALE-audit', 'gap C7', 'Operations/KPIs.md aanmaken', 'meten of mijn uitvoering loopt'. Triggert ook bij iedere expliciete verwijzing naar C7 of `Operations/KPIs.md`."
+description: "Helpt een ondernemer in 30 tot 50 minuten een set operationele KPI's vast te leggen in `Operations/KPIs.md` (SCALE-stap C7, Collect). Meet of de uitvoering op koers ligt: doorlooptijd, OTIF, kwaliteit, capaciteit, service-niveau, team-gezondheid, backoffice-discipline. Werkt via gestructureerd interview in 4 afdelingsblokken met pre-fill uit Operations/Processen, HR/Team, IT/Toolstack, Directie. Activeer bij triggers als 'KPIs bepalen', 'operationele metrics', 'wat ga ik meten', 'doorlooptijd meten', 'C7 dichten in SCALE-audit'."
 category: operations
 tags: [scale-framework, c7, collect, kpi, meten, operationele-kpis, operations, dashboard]
 estimatedTime: "30 tot 50 minuten"
@@ -12,6 +12,16 @@ scaleFramework: true
 ---
 
 # Operationele KPI's
+
+## Wanneer triggeren
+
+Deze skill legt in 30 tot 50 minuten een set operationele KPI's vast in één canoniek document: `Operations/KPIs.md`. Dit is SCALE-stap C7 (Collect) en het ontbrekende stuk tussen verkoop-data (C2 CRM), financiele data (C3) en het werkelijke draaien van het bedrijf. Operationele KPI's meten of de **uitvoering** op koers ligt, niet of de verkoop loopt of de cijfers kloppen: doorlooptijd per project of order, on-time-in-full leveringen, kwaliteits-incidenten, herwerk-percentage, capaciteits-benutting, first-response-time op klantvragen, SLA-naleving, ziekteverzuim, retentie, foutpercentage facturatie.
+
+De skill werkt via een gestructureerd interview in 4 afdelingsblokken (Dienstverlening/Productie, Klantenservice, HR/Team, Operations/Backoffice), één blok per beurt zodat de gebruiker niet wordt overweldigd. Per gekozen KPI worden zeven velden vastgelegd: naam, definitie (formule en hoe gemeten), bron (welke tool of persoon), frequentie (realtime, dag, week, maand), eigenaar (rol of persoon uit HR/Team.md), normwaarde met groen/oranje/rood drempels, en gewenste trend-richting.
+
+Vóór het interview begint, scant de skill diep wat al beschikbaar is in de vault: `Operations/Processen/` voor SOPs met meetpunten, `HR/Team.md` voor eigenaren per rol, `IT/Toolstack.md` voor data-bronnen, `Directie/00 - Overzicht.md` voor genoemde succes-indicatoren, en `Directie/01 - Goals.md` voor jaardoelen die KPI-vertaling vragen. Werkt vault-onafhankelijk: er worden geen aannames gedaan over een specifieke mapnaam of vault-eigenaar, alleen over SCALE-Structure-conventies (`Operations/`, `HR/`, `IT/`, `Directie/`).
+
+Trigger-zinnen: 'KPIs bepalen', 'operationele metrics', 'wat ga ik meten', 'operationele KPIs', 'KPI dashboard opzetten', 'uitvoeringsmetrics', 'doorlooptijd meten', 'OTIF instellen', 'kwaliteits-KPIs', 'service-level metrics', 'C7 dichten in SCALE-audit', 'gap C7', 'Operations/KPIs.md aanmaken', 'meten of mijn uitvoering loopt'. Triggert ook bij iedere expliciete verwijzing naar C7 of `Operations/KPIs.md`.
 
 ## Doel
 
@@ -533,6 +543,22 @@ Vervolgsuggesties die je altijd noemt:
   - **A6 Auto Rapportage Setup** — automatisering van de KPI-rapportage zelf
 - **Doorgroei naar L-skills (Leverage)** — KPI's met handmatige bron of "tool kan het wel maar moet nog geconfigureerd" zijn directe targets voor L1, L4 (SOP automatiseren).
 - **Review-ritme** — KPI's verouderen sneller dan structuur-documenten omdat normwaardes blijken te streng of te ruim te zijn. Stel voor: kwartaal-review met norm-bijstelling, en jaarlijks structurele review of de juiste KPI's wel gekozen zijn.
+
+## Cold-start en fictieve-klant modus
+
+De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situaties werkt dat anders:
+
+**Autonome / 1-shot run** (bijvoorbeeld voor evaluaties, bulk-bouw of als de gebruiker expliciet "doe alles in 1 keer" zegt):
+- Sla het interview over en gebruik wat in het prompt staat als enige bron.
+- Vul ontbrekende velden in met realistische defaults plus expliciete `[VERIFICEREN]`-marker.
+- Lever de complete deliverable, niet alleen aanbevelingen.
+- Voeg onderaan een sectie "Open punten" toe met alle [VERIFICEREN]-velden, zodat de gebruiker weet wat hij later moet bevestigen.
+
+**Fictieve klant of cold-start (geen bestaande vault):**
+- Vraag NIET naar bedrijfsgegevens die in een eerste gesprek logisch te achterhalen zijn; gebruik wat in het prompt staat plus defaults.
+- Schrijf de deliverable in de gevraagde output-map, niet in `{scope}/...`-paden.
+- Vermeld cross-links naar andere SCALE-stappen als `[VERIFICEREN]` zonder ze in te vullen.
+- Skip changelog-updates en daily-log-updates die normaal aan het eind gebeuren.
 
 ## Belangrijke regels
 

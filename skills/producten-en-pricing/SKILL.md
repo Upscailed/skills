@@ -441,6 +441,22 @@ Vervolgsuggesties die je altijd noemt:
 - **Cross-link in 00 - Overzicht.md**  de aanbod-sectie van het bedrijfsoverzicht mag nu verwijzen naar dit document in plaats van zelf alle pakketten op te sommen.
 - **Update bij prijswijziging.** Dit is een levend document. Update bij elke prijswijziging, nieuw pakket of geschrapt pakket. Versienummer in frontmatter bijwerken.
 
+## Cold-start en fictieve-klant modus
+
+De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situaties werkt dat anders:
+
+**Autonome / 1-shot run** (bijvoorbeeld voor evaluaties, bulk-bouw of als de gebruiker expliciet "doe alles in 1 keer" zegt):
+- Sla het interview over en gebruik wat in het prompt staat als enige bron.
+- Vul ontbrekende velden in met realistische defaults plus expliciete `[VERIFICEREN]`-marker.
+- Lever de complete deliverable, niet alleen aanbevelingen.
+- Voeg onderaan een sectie "Open punten" toe met alle [VERIFICEREN]-velden, zodat de gebruiker weet wat hij later moet bevestigen.
+
+**Fictieve klant of cold-start (geen bestaande vault):**
+- Vraag NIET naar bedrijfsgegevens die in een eerste gesprek logisch te achterhalen zijn; gebruik wat in het prompt staat plus defaults.
+- Schrijf de deliverable in de gevraagde output-map, niet in `{scope}/...`-paden.
+- Vermeld cross-links naar andere SCALE-stappen als `[VERIFICEREN]` zonder ze in te vullen.
+- Skip changelog-updates en daily-log-updates die normaal aan het eind gebeuren.
+
 ## Belangrijke regels
 
 - **Eén blok per beurt** in het interview. Niet alle vragen tegelijk neerzetten. Wachten op antwoord, dan pas door.

@@ -406,6 +406,18 @@ Geef daarna **drie concrete aanbevelingen** voor opvolging:
 
 Bij **twijfel over regime of grensgeval**: noem expliciet de doorverwijzing naar een fiscaal adviseur (bijvoorbeeld Fit In Finance) of de eigen accountant. Deze skill is documentatie, geen advies.
 
+## Externe of fictieve klant modus
+
+Niet elke gebruiker is een van Iwan's bedrijven met een ingerichte vault. Als de skill wordt aangeroepen voor een extern bedrijf, een fictieve case of een evaluatie:
+
+- Skip de vault-scan stap (Stap 2). Gebruik wat in het prompt staat als enige bron.
+- Sla het uitgebreide 5-blokken-interview over of comprimeer het tot één korte vragenronde, afhankelijk van wat de opdracht vraagt.
+- Vul ontbrekende administratieve velden in met realistische defaults plus expliciete `[VERIFICEREN]`-marker. Defaults voor Nederlandse B2B-dienstverleners (standaard 21%-regime, kwartaalaangifte, geen verlegging, geen OSS) zijn altijd safe.
+- Schrijf de deliverable naar het opgegeven output-pad, niet naar `{scope}/...`-paden in een vault die niet bestaat.
+- Verwijs naar gerelateerde SCALE-skills (J1 KvK, J3 Algemene Voorwaarden, J4 Privacyverklaring) in een aparte sectie "Aanbevolen vervolgstappen", zonder ze automatisch uit te voeren.
+- Skip changelog-, daily- en vault-mutaties die normaal in Stap 7 gebeuren.
+- Sluit af met een "Open punten ter verificatie"-blok dat alle [VERIFICEREN]-velden op één plek lijst, met expliciete vermelding dat dit administratieve documentatie is en geen fiscaal advies.
+
 ## Belangrijke regels
 
 - **Eén blok per beurt** in het interview. Niet alle vragen tegelijk neerzetten. Wachten op antwoord, dan pas door.

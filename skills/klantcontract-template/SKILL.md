@@ -224,6 +224,18 @@ Logging:
 3. Als de map `Juridisch/` nieuw aangemaakt is: log ook in `Systeem/Structuur/Vault Changelog.md`
 4. Als er een SCALE-audit staat met J5 op ❌ of ⚠️: stel voor om de audit opnieuw te draaien
 
+## Externe of fictieve klant modus
+
+Niet elke gebruiker is een van Iwan's bedrijven met een ingerichte vault. Als de skill wordt aangeroepen voor een extern bedrijf, een fictieve case of een evaluatie:
+
+- Skip de vault-scan stap (Stap 2). Gebruik wat in het prompt staat als enige bron.
+- Vul ontbrekende juridische velden in met realistische defaults plus expliciete `[VERIFICEREN]`-marker. Defaults voor Nederlandse B2B-dienstverleners (prijsmodel vast bedrag of maandprijs, hybride IP-clausule, aansprakelijkheid beperkt tot factuurbedrag, 1 maand opzegtermijn, geheimhouding 5 jaar na afloop, Nederlands recht) zijn altijd safe.
+- Gebruik `[INVULLEN PER OPDRACHT]` voor velden die per klant variëren, ongeacht of er een vault is.
+- Schrijf de deliverable naar het opgegeven output-pad, niet naar `{scope}/...`-paden in een vault die niet bestaat.
+- Verwijs naar gerelateerde SCALE-skills (J3 Algemene Voorwaarden, J4 Privacyverklaring) in een aparte sectie "Aanbevolen vervolgstappen", zonder ze automatisch uit te voeren. Vermeld expliciet dat het contract zonder J3 en J4 niet sluitend is.
+- Skip changelog-, daily- en vault-mutaties die normaal in Stap 5 gebeuren.
+- Sluit af met een "Open punten ter verificatie"-blok dat alle [VERIFICEREN]-velden op één plek lijst.
+
 ## Belangrijke regels
 
 - **Vault eerst.** Vraag nooit naar iets dat al ergens in de vault staat. Maximaal 7 vragen, vaak minder.
