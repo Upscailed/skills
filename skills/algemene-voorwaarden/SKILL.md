@@ -1,6 +1,14 @@
 ---
 name: algemene-voorwaarden
+title: "Algemene Voorwaarden"
 description: "Stelt een complete set Algemene Voorwaarden op voor een Nederlandse B2B-dienstverlener. Scant de vault automatisch op bedrijfsgegevens, stelt maximaal 2 gerichte vragen en genereert een juridisch solide document van 15 artikelen (inclusief overmacht, AVG-verwijzing en wijzigingsclausule), klaar voor gebruik bij offertes en contracten. Gebruik deze skill altijd wanneer iemand vraagt om AV, algemene voorwaarden, contractbijlagen, zegt 'ik heb geen voorwaarden', 'J3 dichten', 'gat in SCALE-audit voor juridisch', of wanneer iemand vraagt wat er gebeurt als een klant niet betaalt en er nog geen AV bestaan."
+category: operations
+tags: [juridisch, av, voorwaarden, contracten, scale-framework, j3]
+estimatedTime: "20-30 minuten"
+version: "1.0.0"
+author: Upscailed
+license: MIT
+scaleFramework: true
 ---
 
 # Algemene Voorwaarden

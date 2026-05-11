@@ -3,12 +3,13 @@ name: privacyverklaring
 nummer: 14
 title: "Privacyverklaring"
 description: "Stelt in 15-20 minuten een AVG-conforme privacyverklaring op voor een Nederlands bedrijf. Scant eerst de vault op bedrijfsgegevens en gekoppelde tools (data-verwerkers). Stelt daarna maximaal 3 gerichte vragen. Output: een kant-en-klaar document van minimaal 300 woorden dat welke data, doel, retentie en rechten van betrokkenen dekt, opgeslagen in Juridisch/Privacyverklaring.md. Activeer altijd wanneer iemand zegt: 'privacyverklaring maken', 'AVG-document', 'privacy policy', 'J4 dichten', 'gat in SCALE-audit voor privacy'."
-category: juridisch
+category: operations
 tags: [juridisch, privacy, AVG, GDPR, scale-framework, j4, dienstverlening, klant]
 estimatedTime: "15-20 minuten"
 version: "1.0.0"
 author: Upscailed
 license: MIT
+scaleFramework: true
 ---
 
 # Privacyverklaring
