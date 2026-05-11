@@ -3,7 +3,7 @@ name: concurrentie-research
 nummer: 22
 title: "Concurrentie Research"
 description: "Brengt in 20-40 minuten minimaal 3 directe concurrenten in kaart voor een Nederlands MKB-bedrijf. Scant eerst de vault op ICP, doelgroep en aanbod. Stelt maximaal 2 gerichte vragen. Voert daarna actieve webresearch uit. Output: een gestructureerd Concurrentie.md opgeslagen in Directie/Research/, direct herbruikbaar als input voor SWOT (S6) en Benchmarking (A5). Activeer altijd wanneer iemand zegt: 'concurrenten in kaart brengen', 'competitor analyse', 'marktscan', 'wie zijn mijn concurrenten', 'C6 dichten', 'gat in SCALE-audit voor concurrentie', 'SWOT voorbereiden' of 'benchmarking starten'."
-category: collect
+category: research
 tags: [concurrentie, marktonderzoek, competitor-analyse, scale-framework, c6, swot, benchmarking]
 estimatedTime: "20-40 minuten"
 version: "1.1.1"
