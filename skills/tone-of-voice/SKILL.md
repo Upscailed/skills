@@ -136,9 +136,17 @@ Dit voorkomt dat het interview vragen stelt waarvan het antwoord al ergens in de
 
 ### Stap 4: Interview, blok voor blok
 
-**Kernregel:** stel **één blok per beurt**. Wacht op het antwoord. Dán pas het volgende blok. Niet alle blokken tegelijk neerzetten, dat overweldigt.
+**Kernregel 1:** stel **één blok per beurt**. Wacht op het antwoord. Dán pas het volgende blok. Niet alle blokken tegelijk neerzetten, dat overweldigt.
 
-Gebruik waar mogelijk de `AskUserQuestion`-tool met concrete keuzeopties (2 tot 4 opties per vraag, max 4 vragen per call). Bied altijd "Anders, namelijk..." als ontsnappingsroute. Zet je aanbeveling als eerste optie met "(Aanbevolen)" erachter, op basis van wat je in Stap 2 hebt gevonden.
+**Kernregel 2:** gebruik **altijd** de `AskUserQuestion`-tool voor elke vraag in het interview, ook voor 'kleine' bevestigingen ("klopt dit?"). Geen open vragen meer in de chat. Ondernemer kan klikken in plaats van typen, dat verlaagt drempel en versnelt de flow. De tool voegt automatisch een "Other"-optie toe, dus die hoef je niet zelf in te bouwen.
+
+**Format-regels voor de vragen:**
+- 1 tot 4 vragen per AskUserQuestion-call (de tool ondersteunt max 4 tegelijk)
+- Per vraag 2 tot 4 antwoord-opties (de tool ondersteunt max 4)
+- Bij lijsten waar meer opties relevant zijn (zoals karaktertrekken, kanalen): groepeer in 4 thematische clusters, of doe meerdere rondes
+- Zet je aanbeveling als **eerste** optie met "(Aanbevolen)" achter de label, op basis van wat je in Stap 2 hebt gevonden
+- Gebruik `multiSelect: true` waar meerdere antwoorden logisch zijn (karaktertrekken, kanalen, situaties)
+- Header per vraag: korte chip-label van max 12 tekens (bv. "Persoonlijkheid", "Aanspreking", "Humor")
 
 **Blok 1 — Merkpersoonlijkheid**
 
