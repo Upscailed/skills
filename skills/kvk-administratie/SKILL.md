@@ -5,7 +5,7 @@ description: "Documenteert de KvK-inschrijving van een Nederlandse onderneming i
 category: operations
 tags: [juridisch, kvk, ondernemingsgegevens, btw, rsin, sbi, scale-framework, j1]
 estimatedTime: "10-20 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -234,3 +234,13 @@ Logging:
 - **Cross-link met J3/J4/J5.** Het document moet aanroepbaar zijn vanuit de skills voor Algemene Voorwaarden, Privacyverklaring en Klantcontract — neem dus altijd KvK-nummer, BTW-ID, vestigingsplaats, rechtsvorm en handelsnaam op in een goed leesbaar overzicht bovenin.
 - **Geen juridisch advies.** Deze skill documenteert; ze toetst niet of de inschrijving fiscaal optimaal is, of de rechtsvorm past bij de schaal. Bij twijfel verwijzen naar een accountant of jurist.
 - **Vault-onafhankelijk.** Geen hard-coded paden naar één specifieke vault. Werk altijd vanuit `{scope}` en respecteer de mappenstructuur die in de actieve vault aanwezig is.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Conditional rendering: BV-cases skippen EZ/VOF-subsecties en omgekeerd.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

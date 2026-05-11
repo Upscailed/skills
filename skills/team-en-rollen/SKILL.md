@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 20 tot 45 minuten een Team.md op te bouwen
 category: structure
 tags: [team, rollen, structure, hr, organogram, scale-framework, s11]
 estimatedTime: "20 tot 45 minuten"
-version: "1.1.0"
+version: "1.2.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -355,3 +355,13 @@ De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situ
 ## Voorbeeld-output
 
 Zie de drie referentie-templates onder `references/` voor de exacte structuur per variant. Eerste live test-case wordt opgeleverd in een vervolgsessie waarin de skill op één bedrijf wordt doorlopen.
+
+## Changelog
+
+### 1.2.0 — 2026-05-11
+
+- Nieuwe sectie "Cold-start en fictieve-klant modus".
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

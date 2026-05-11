@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 45 tot 60 minuten een compleet, profession
 category: structure
 tags: [tone-of-voice, communicatie, schrijven, merk, branding, scale-framework, s3]
 estimatedTime: "45-60 minuten"
-version: "2.1.0"
+version: "2.2.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -458,3 +458,17 @@ Wat een goed ToV-document laat zien:
 - Geen tekstschrijver-skill. Deze gids legt de regels vast, schrijft niet zelf alle content voor het bedrijf
 - Geen marketing-strategie. Hoe vaak je post, op welke momenten, met welke campagnes, dat is een andere skill (content-roadmap of marketing-strategie)
 - Geen rebrand-skill. Bij een grote merkverandering eerst de positionering opnieuw bepalen, daarna ToV bijwerken
+
+## Changelog
+
+### 2.2.0 — 2026-05-11
+
+- Nieuwe sectie "Cold-start en fictieve-klant modus".
+
+### 2.0.0 — eerdere release
+
+- Major herziening met nieuwe template-structuur.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

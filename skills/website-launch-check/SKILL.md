@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 45 tot 90 minuten een website veilig en co
 category: operations
 tags: [scale-framework, m1, marketing, website, checklist, launch, seo, avg, privacy, performance, security, dns, analytics, lighthouse]
 estimatedTime: "45 tot 90 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -504,3 +504,13 @@ De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situ
 ## Voorbeeld-output
 
 Zie [`references/template-website-launch-check.md`](references/template-website-launch-check.md) voor de exacte structuur die de skill oplevert.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Nieuwe sectie "Cold-start en fictieve-klant modus".
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

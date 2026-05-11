@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 30 tot 60 minuten een sales-pipeline en bi
 category: operations
 tags: [scale-framework, v1, verkoop, sales, pipeline, salesproces, discovery, forecast, deal-velocity, win-rate]
 estimatedTime: "30 tot 60 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -607,3 +607,13 @@ De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situ
 ## Voorbeeld-output
 
 Zie [`references/template-salesproces.md`](references/template-salesproces.md) voor de exacte structuur die de skill oplevert: fase-tabel met entry, kern-acties, exit, doorlooptijd, kans-% en eigenaar; sales-materiaal-tabel; KPI-tabel met targets; forecast-model met voorbeeld; toolkoppeling; won-loss-analyse en cross-links naar S4 ICP, S8 Producten, C2 CRM, V3 Opvolg-flow, J5 Klantcontract en S11 Team.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Nieuwe sectie "Cold-start en fictieve-klant modus".
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

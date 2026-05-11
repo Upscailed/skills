@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 25-35 minuten een rijk bedrijfsoverzicht o
 category: structure
 tags: [bedrijfsoverzicht, identiteit, structure, scale-framework, s1, fundament]
 estimatedTime: "25 tot 35 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -391,3 +391,13 @@ Zie [`references/template-bedrijfsoverzicht.md`](references/template-bedrijfsove
 
 Levende voorbeelden van een rijk gevuld bedrijfsoverzicht (intern bij Upscailed):
 - Een rijk uitgewerkt `00 - Overzicht.md` heeft minstens 100 regels, alle 7 blokken volledig gevuld, plus SCALE-framework- of methodiek-uitleg en kernprincipes
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Nieuwe sectie "Cold-start en fictieve-klant modus" voor autonome of vault-loze runs.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

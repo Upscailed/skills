@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 30 tot 45 minuten een rijk producten- en p
 category: structure
 tags: [producten, pricing, aanbod, pakketten, structure, scale-framework, s8, v2, fundament]
 estimatedTime: "30 tot 45 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -480,3 +480,13 @@ Cross-links die in elk goed gevuld Producten-document terugkomen:
 - `Directie/Playbook/ICP.md` (S4)  doelgroep per pakket koppelt hieraan
 - `Directie/Research/Concurrentie-research.md` (C6)  positionering steunt hierop
 - Salesproces-document (V1)  gebruikt dit document direct in scripts en offertes
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Nieuwe sectie "Cold-start en fictieve-klant modus".
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

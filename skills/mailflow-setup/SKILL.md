@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 45 tot 75 minuten zes geautomatiseerde e-m
 category: operations
 tags: [scale-framework, l3, leverage, email, automation, mailflow, workflows, avg]
 estimatedTime: "45 tot 75 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -645,3 +645,13 @@ De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situ
 ## Voorbeeld-output
 
 Zie [`references/template-mailflow.md`](references/template-mailflow.md) voor de exacte structuur die de skill oplevert: ASCII-diagrammen per workflow, tabellen met dag, kanaal, inhoud, personalisatie, eigenaar en tool-actie, plus een tool + sender-blok aan het begin, een AVG- en deliverability-blok aan het eind, en een cross-link-tabel naar S2/S3/S4/S8/S9/V1/V3/C2/J4/M3/M4/S12.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Nieuwe sectie "Cold-start en fictieve-klant modus".
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

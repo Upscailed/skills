@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 45 tot 75 minuten een data-gedreven beslis
 category: operations
 tags: [beslissings-analyse, beslissingen, strategie, scale-framework, a4, analyze, data-gedreven, beslis-playbook, framework]
 estimatedTime: "45 tot 75 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -506,3 +506,13 @@ Vervolgsuggesties die je altijd noemt:
 ## Voorbeeld-output
 
 Zie [`references/template-beslissings-analyse.md`](references/template-beslissings-analyse.md) voor de exacte structuur die de skill oplevert.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Scope-waarschuwing in description plus nieuwe sectie "Wanneer NIET deze skill?" verwijzend naar beslissingshulp voor one-shot keuzes.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

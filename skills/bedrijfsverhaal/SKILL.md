@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 30 tot 45 minuten het verhaal van zijn of 
 category: structure
 tags: [verhaal, origin-story, structure, brand, communicatie, scale-framework, s7]
 estimatedTime: "30-45 minuten"
-version: "1.1.0"
+version: "1.2.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -300,3 +300,13 @@ Wat dat voorbeeld goed laat zien:
 - Ijsberg-metafoor uit Iwans eigen woorden
 - Brug van pijn-bij-MKB → eigen oplossing → wat de klant gegund wordt
 - Hergebruik-sectie met 5 concrete kanalen
+
+## Changelog
+
+### 1.2.0 — 2026-05-11
+
+- Pre-fill-scan uitgebreid met persoonlijke-laag bronnen (00 - Over X.md, About.md, biografie, LinkedIn) voor solopreneurs.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 30 tot 45 minuten een werkend feedback-sys
 category: operations
 tags: [klantfeedback, nps, csat, reviews, tevredenheid, collect, scale-framework, c4, klantenservice, voice-of-customer]
 estimatedTime: "30 tot 45 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -532,3 +532,13 @@ Vervolgsuggesties die je altijd noemt:
 ## Voorbeeld-output
 
 Zie [`references/template-feedback-collector.md`](references/template-feedback-collector.md) voor de exacte structuur die de skill oplevert: momenten-tabel, datavlak-tabel, ASCII-cyclus, eerste 3 feedbacks en cross-link-tabel naar S6/A4/M3/V3/S9/S4.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Sector-specifieke feedback-momenten toegevoegd (retail, horeca, SaaS/B2B, zorg, dienstverlening).
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

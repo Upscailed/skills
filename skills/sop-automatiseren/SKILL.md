@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 45 tot 90 minuten zijn of haar bestaande S
 category: operations
 tags: [scale-framework, l1, leverage, sop, automatisering, processen, make, zapier, n8n, ai-agent, mkb]
 estimatedTime: "45 tot 90 minuten (1 tot 5 SOPs in één sessie)"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -562,3 +562,13 @@ De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situ
 ## Voorbeeld-output
 
 Zie [`references/template-sop-automatiseren.md`](references/template-sop-automatiseren.md) voor de exacte structuur die de skill oplevert: frontmatter, samenvatting, per-SOP-blok (6 secties met tabellen), roadmap in drie horizonten, eigenaars-tabel, review-ritme, en cross-link-blok naar S10/S12/L2/L3/L4/E1/E3.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Nieuwe sectie "Cold-start en fictieve-klant modus".
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

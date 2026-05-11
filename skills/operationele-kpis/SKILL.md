@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 30 tot 50 minuten een set operationele KPI
 category: operations
 tags: [scale-framework, c7, collect, kpi, meten, operationele-kpis, operations, dashboard]
 estimatedTime: "30 tot 50 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -579,3 +579,13 @@ De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situ
 ## Voorbeeld-output
 
 Zie [`references/template-operationele-kpis.md`](references/template-operationele-kpis.md) voor de exacte structuur die de skill oplevert: KPI-overzichtstabel, KPI-kaart per metric met alle 7 velden, cross-links naar S10 (SOPs), S11 (Team en Rollen) en S12 (Toolstack), sectie voor gewenste KPI's zonder huidige bron, en hint richting A1, A2, A3 en A6.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Description ingekort, oude inhoud naar nieuwe sectie "Wanneer triggeren". Plus Cold-start modus.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

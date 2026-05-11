@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 60 tot 120 minuten een werkend custom dash
 category: bouwen
 tags: [scale-framework, e1, engineer, dashboard, maatwerk, astro, react, tailwind, recharts, nextjs, shadcn, tremor, looker, retool, notion, vercel, cloudflare, mission-control, custom-build]
 estimatedTime: "60 tot 120 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -926,3 +926,13 @@ Vervolgsuggesties die je altijd noemt:
 ## Voorbeeld-output
 
 Zie [`references/template-dashboard-bouwer.md`](references/template-dashboard-bouwer.md) voor de exacte structuur die de skill oplevert: overzichtstabel met alle tegels, stack-keuze met motivatie, repo-scaffold-commando's, data-bron-integratie-tabel, visualisatie-componenten per tegel, auth + hosting + monitoring, AIOS-in-a-Week-rol-out-plan met dag-bezittingen, en cross-links naar A2 (ontwerp), S12 (tooling), S11 (gebruikers), L2 (scheduled data), C-skills (bron-data), S2 (brand-styling).
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- A2-precheck van harde stop naar mode-keuze: eerst A2 doen, of doorgaan met defaults en [VERIFICEREN]-markers.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

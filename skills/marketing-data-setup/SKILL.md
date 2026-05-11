@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 25 tot 45 minuten een volledig marketing-d
 category: operations
 tags: [marketing-data, analytics, kpis, collect, scale-framework, c1, data-stromen, marketing]
 estimatedTime: "25 tot 45 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -577,3 +577,13 @@ De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situ
 ## Voorbeeld-output
 
 Zie [`references/template-marketing-data.md`](references/template-marketing-data.md) voor de exacte structuur die de skill oplevert: kanaal-tabel met datasets, frequentie en bestemming, gap-sectie, credentials-rij, review-ritme en cross-link naar S12 Toolstack, C5 Website Analytics, M2 Social Presence, M3 Content Roadmap en A1 Rapportage Builder.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Nieuwe sectie "Cold-start en fictieve-klant modus".
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

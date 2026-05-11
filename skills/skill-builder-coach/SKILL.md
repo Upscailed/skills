@@ -5,7 +5,7 @@ description: "Coacht een ondernemer in 60 tot 120 minuten bij het zelf bouwen va
 category: bouwen
 tags: [scale-framework, e6, engineer, skill-bouw, meta, skill-creator, ai-assistent, ondernemer, coaching]
 estimatedTime: "60 tot 120 minuten (1 skill per sessie)"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -493,3 +493,13 @@ Als meta-tool voor de eerste versie: [`anthropic-skills:skill-creator`](https://
 **Dit is de meta-skill**, de laatste van de 44 SCALE-skills. Pas in te zetten ná Sprint 1 (Structure) en Sprint 2 (Juridisch), en bij voorkeur ook Sprint 3 (Collect). Een goede skill leunt op een gevulde vault: zonder bedrijfsoverzicht, ICP, producten, processen en data heeft een skill niets om mee te werken.
 
 Probeer je E6 als eerste SCALE-stap, dan bouw je een lege schil. Doe eerst het werk dat het materiaal oplevert, dan pas de skill die ermee werkt.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Stap 6 (testen) en stap 7 (feedback-loop) hard verplicht gemaakt. Minimaal 3 testprompts vereist voor levering.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

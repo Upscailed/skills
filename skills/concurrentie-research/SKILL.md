@@ -6,7 +6,7 @@ description: "Brengt in 20-40 minuten minimaal 3 directe concurrenten in kaart v
 category: research
 tags: [concurrentie, marktonderzoek, competitor-analyse, scale-framework, c6, swot, benchmarking]
 estimatedTime: "20-40 minuten"
-version: "1.1.1"
+version: "1.2.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -346,3 +346,13 @@ Niet elke gebruiker is een van Iwan's bedrijven met een ingerichte vault. Als de
 - **Nooit overschrijven** zonder bevestiging als er al een Concurrentie.md bestaat.
 - **[VERIFICEREN] zichtbaar laten** voor velden die niet publiekelijk beschikbaar waren (bijv. intern prijsmodel of klantomvang concurrent).
 - **Geografische focus bewaken.** Focus standaard op Nederland. Vermeld expliciet als een concurrent alleen regionaal of internationaal actief is.
+
+## Changelog
+
+### 1.2.0 — 2026-05-11
+
+- Nieuwe sectie "Externe of fictieve klant modus" met publieke kennis als bron.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

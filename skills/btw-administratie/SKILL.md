@@ -5,7 +5,7 @@ description: "Helpt een Nederlandse ondernemer in 15 tot 25 minuten zijn BTW-sta
 category: operations
 tags: [juridisch, btw, fiscaal, administratie, kor, oss, scale-framework, j2]
 estimatedTime: "15 tot 25 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -435,3 +435,13 @@ Niet elke gebruiker is een van Iwan's bedrijven met een ingerichte vault. Als de
 ## Voorbeeld-output
 
 Zie [`references/template-btw-administratie.md`](references/template-btw-administratie.md) voor de exacte structuur die de skill oplevert.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Nieuwe sectie "Externe of fictieve klant modus" met fiscaal-administratieve defaults.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

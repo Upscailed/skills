@@ -5,7 +5,7 @@ description: "Stelt een invulbaar klantcontract-template op voor Nederlandse B2B
 category: operations
 tags: [juridisch, contract, klantcontract, opdrachtovereenkomst, scale-framework, j5]
 estimatedTime: "25-40 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -246,3 +246,13 @@ Niet elke gebruiker is een van Iwan's bedrijven met een ingerichte vault. Als de
 - **B2B-scope bewaken.** Standaard is dit een B2B-template. Bij B2C-signalen waarschuwen en uitleggen welke aanvullende artikelen nodig zijn.
 - **Cross-link verplicht naar J3 + J4.** Het contract moet expliciet naar Algemene Voorwaarden (J3) en Privacyverklaring (J4) verwijzen als die in de vault aanwezig zijn. Staan ze er niet: signaleer aan de gebruiker dat J3 + J4 eerst af moeten zijn voor een sluitend juridisch geheel.
 - **Geen marketing-superlatieven.** Het is een juridisch document. Geen "krachtig", "uitstekend", "ongekend".
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Nieuwe sectie "Externe of fictieve klant modus" met contract-defaults.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

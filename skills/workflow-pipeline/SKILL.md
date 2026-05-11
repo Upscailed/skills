@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 60 tot 120 minuten een doorlopende workflo
 category: bouwen
 tags: [scale-framework, e3, engineer, workflow, automatisering, orchestratie, pipeline, n8n, temporal, inngest, airflow, event-bus, mkb]
 estimatedTime: "60 tot 120 minuten (1 sessie)"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -541,3 +541,13 @@ Vervolgsuggesties die je altijd noemt:
 ## Voorbeeld-output
 
 Zie [`references/template-workflow-pipeline.md`](references/template-workflow-pipeline.md) voor de exacte structuur die de skill oplevert: frontmatter, samenvatting, pipeline-diagram, per-workflow-spec (10 velden), orchestratie-keuze met scoringsmatrix, state-laag, observability-laag, versionering-aanpak, migration-tabel met deadlines, eigenaars-tabel, review-ritme, en cross-link-blok naar L1/L2/L3/L4/E1/E5/S10/S12.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Twee toepassingsdomeinen onderscheiden: software-orchestratie en operationele Kanban-pipeline. Domeinkeuze in stap 1.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

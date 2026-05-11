@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 30 tot 50 minuten zijn financiële data-st
 category: operations
 tags: [finance, financiele-data, collect, kerncijfers, rapportage, scale-framework, c3, omzet, kosten, marge, cashflow, dso]
 estimatedTime: "30 tot 50 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -615,3 +615,13 @@ Vervolgsuggesties die je altijd noemt:
 ## Voorbeeld-output
 
 Zie [`references/template-financiele-data.md`](references/template-financiele-data.md) voor de exacte structuur die de skill oplevert: bronnen-tabel, kerncijfer-definities per categorie, frequentie-matrix, consumenten-overzicht, cross-link naar S12, J1, J2 en aangrenzende A-, L- en E-stappen.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Split-stack instructies toegevoegd voor multi-bron setups (bijv. boekhouding + factuur-tool + bank apart).
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 35 tot 60 minuten een centraal CEO-dashboa
 category: operations
 tags: [mission-control, dashboard, ceo, kpi, scale-framework, a2, analyze, overview]
 estimatedTime: "35 tot 60 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -530,3 +530,13 @@ De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situ
 ## Voorbeeld-output
 
 Zie [`references/template-mission-control.md`](references/template-mission-control.md) voor de exacte structuur die de skill oplevert: hero-KPI-tabel, trend-overzicht, alert-regels, goal-progress, recent-activity, tool-keuze met motivatie, refresh-matrix en bouw-route naar E1 of L2.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Nieuwe sectie "Cold-start en fictieve-klant modus".
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

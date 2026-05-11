@@ -5,7 +5,7 @@ description: "Helpt een ondernemer in 30-45 minuten een rijke klantreis (custome
 category: structure
 tags: [klantreis, customer-journey, touchpoints, structure, scale-framework, s9, funnel, retentie]
 estimatedTime: "30 tot 45 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -470,3 +470,13 @@ De skill is ontworpen als beurtsgewijs gesprek met vault-pre-fill. Bij twee situ
 ## Voorbeeld-output
 
 Zie [`references/template-klantreis.md`](references/template-klantreis.md) voor de exacte structuur die de skill oplevert: ASCII-diagram, fase-tabellen met 7 dimensies, en cross-link-tabel naar S4/S10/V3.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Nieuwe sectie "Cold-start en fictieve-klant modus".
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.

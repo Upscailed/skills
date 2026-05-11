@@ -5,7 +5,7 @@ description: "Stelt een complete set Algemene Voorwaarden op voor een Nederlands
 category: operations
 tags: [juridisch, av, voorwaarden, contracten, scale-framework, j3]
 estimatedTime: "20-30 minuten"
-version: "1.0.0"
+version: "1.1.0"
 author: Upscailed
 license: MIT
 scaleFramework: true
@@ -266,3 +266,13 @@ Deze skill is onderdeel van de juridische laag van het SCALE-framework. Combinee
 - **`privacyverklaring` (J4)** — AVG-document dat samen met de AV op de website hoort; artikel "Gegevens & privacy" in de AV verwijst hiernaar.
 - **`verzekeringen-overzicht` (J5)** — overzicht van bedrijfsverzekeringen dat de aansprakelijkheidsclausule in de AV onderbouwt.
 - **`scale-audit`** — controleert of de J-laag compleet is; draai opnieuw na het opstellen van AV om de score op J3 bij te werken.
+
+## Changelog
+
+### 1.1.0 — 2026-05-11
+
+- Nieuwe sectie "Externe of fictieve klant modus" met B2B-defaults. Plus eerdere cross-links naar J1/J4/J5.
+
+### 1.0.0 — initiele release
+
+- Eerste productie-versie.
