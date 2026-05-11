@@ -8,6 +8,7 @@ estimatedTime: "25 tot 35 minuten"
 version: "1.0.0"
 author: Upscailed
 license: MIT
+scaleFramework: true
 ---
 
 # Bedrijfsoverzicht
@@ -373,4 +374,4 @@ Vervolgsuggesties die je altijd noemt:
 Zie [`references/template-bedrijfsoverzicht.md`](references/template-bedrijfsoverzicht.md) voor de exacte structuur die de skill oplevert.
 
 Levende voorbeelden van een rijk gevuld bedrijfsoverzicht (intern bij Upscailed):
-- [`Bedrijven/Upscailed/Directie/00 - Overzicht.md`](../../Directie/00%20-%20Overzicht.md) — 196 regels, 7 blokken volledig uitgewerkt, plus SCALE-framework-uitleg en kernprincipes
+- Een rijk uitgewerkt `00 - Overzicht.md` heeft minstens 100 regels, alle 7 blokken volledig gevuld, plus SCALE-framework- of methodiek-uitleg en kernprincipes

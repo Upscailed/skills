@@ -1,6 +1,6 @@
 # Rapport Template
 
-Het format voor het audit-rapport dat de skill aan het eind genereert. Sla op als `{scope}/Directie/Research/YYYY-MM-DD - SCALE Audit.md` (of bij `Persoonlijk/` in `Persoonlijk/Research/YYYY-MM-DD - SCALE Audit.md`).
+Het format voor het audit-rapport dat de skill aan het eind genereert. Sla op binnen een eigen rapport-map per audit: `{scope}/Directie/Research/YYYY-MM-DD - SCALE Audit/YYYY-MM-DD - SCALE Audit.md` (of bij `Persoonlijk/` in `Persoonlijk/Research/YYYY-MM-DD - SCALE Audit/YYYY-MM-DD - SCALE Audit.md`). De HTML- en PDF-versies staan in dezelfde map.
 
 ## Getalformatting (belangrijk voor leesbaarheid)
 

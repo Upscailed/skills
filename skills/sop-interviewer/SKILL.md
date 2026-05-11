@@ -8,6 +8,7 @@ estimatedTime: "30 tot 60 minuten (3 tot 5 SOPs in één sessie)"
 version: "1.0.0"
 author: Upscailed
 license: MIT
+scaleFramework: true
 ---
 
 # SOP Interviewer

@@ -5,7 +5,7 @@ description: "Voert een volledige compleetheids-audit uit op een bedrijf of map 
 category: operations
 tags: [audit, scale-framework, compleetheid, voortgang, gap-analyse, ondernemerschap]
 estimatedTime: "10-25 minuten"
-version: "1.0.2"
+version: "1.0.3"
 author: Upscailed
 license: MIT
 ---
@@ -143,7 +143,15 @@ Genereer het rapport in **drie formaten** parallel, omdat ze elk een andere rol 
 - **HTML** (`YYYY-MM-DD - SCALE Audit.html`) is een visueel dashboard met progress bars en inklapbare detail-tabellen, ideaal om in een browser te bekijken.
 - **PDF** (`YYYY-MM-DD - SCALE Audit.pdf`) is een A4 landscape versie met slimme page-breaks, ideaal om te delen of te printen. Detail-tabellen zijn altijd uitgeklapt zodat alle informatie zichtbaar is op papier.
 
-Alle drie opslaan op dezelfde plek: `[scope]/Directie/Research/` (of `Persoonlijk/Research/` bij persoonlijke scope).
+Alle drie opslaan in een **eigen rapport-map per audit**: `[scope]/Directie/Research/YYYY-MM-DD - SCALE Audit/` (of `Persoonlijk/Research/YYYY-MM-DD - SCALE Audit/` bij persoonlijke scope). De map bevat de drie bestanden naast elkaar:
+
+- `YYYY-MM-DD - SCALE Audit.md`
+- `YYYY-MM-DD - SCALE Audit.html`
+- `YYYY-MM-DD - SCALE Audit.pdf`
+
+Reden: voorkomt dat audit-rapporten verdwijnen tussen tientallen losse research-bestanden, en houdt de drie formaten van één audit-iteratie netjes bij elkaar. Elke nieuwe audit krijgt zijn eigen map met de datum als prefix, zodat oude audits zichtbaar blijven naast de nieuwe.
+
+Maak de map aan voordat je de bestanden schrijft als hij nog niet bestaat.
 
 Het rapport bevat in beide formaten:
 1. **Header**: scope, datum, vergelijking met vorige audit indien beschikbaar
@@ -202,12 +210,12 @@ Voor de PDF-versie: gebruik `references/report-template-pdf.html` als startpunt.
 
 Stappen:
 1. Vul de PDF-template met dezelfde data als de HTML-template (de placeholders zijn identiek)
-2. Sla de gevulde HTML tijdelijk op als verborgen bestand: `[scope]/Directie/Research/.scale-audit-pdf-source.html`
-3. Roep `scripts/html-to-pdf.sh` aan met die source en de gewenste PDF-output:
+2. Sla de gevulde HTML tijdelijk op als verborgen bestand binnen de rapport-map: `[scope]/Directie/Research/YYYY-MM-DD - SCALE Audit/.pdf-source.html`
+3. Roep `scripts/html-to-pdf.sh` aan met die source en de gewenste PDF-output (alle drie de output-bestanden — md, html, pdf — staan in dezelfde rapport-map):
    ```bash
    bash scripts/html-to-pdf.sh \
-     "[scope]/Directie/Research/.scale-audit-pdf-source.html" \
-     "[scope]/Directie/Research/YYYY-MM-DD - SCALE Audit.pdf"
+     "[scope]/Directie/Research/YYYY-MM-DD - SCALE Audit/.pdf-source.html" \
+     "[scope]/Directie/Research/YYYY-MM-DD - SCALE Audit/YYYY-MM-DD - SCALE Audit.pdf"
    ```
 4. Verwijder de tijdelijke HTML-source na succesvolle PDF-generatie
 5. Het script gebruikt headless Chrome (of Chromium, of wkhtmltopdf als fallback) en geeft een nette foutmelding als geen converter beschikbaar is

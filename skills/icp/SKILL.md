@@ -8,6 +8,7 @@ estimatedTime: "30 tot 45 minuten"
 version: "1.0.0"
 author: Upscailed
 license: MIT
+scaleFramework: true
 ---
 
 # ICP, Ideal Customer Profile
@@ -16,7 +17,7 @@ license: MIT
 
 Helpt een ondernemer om in 30 tot 45 minuten zijn **ideale klant** scherp vast te leggen in één canoniek document: `{scope}/Directie/Playbook/ICP.md`. Dit is SCALE-stap 4 (Structure) en het document waarmee alle latere marketing, sales en productkeuzes gericht worden.
 
-*Waarom dit fundamenteel is.* Een bedrijf dat iedereen wil bedienen, bedient niemand. Zonder ICP zwabbert marketing tussen doelgroepen, valt content platte, sluiten verkoopgesprekken slecht aan op de werkelijke pijn en wordt elke klant even belangrijk behandeld terwijl 20 procent van de klanten 80 procent van de marge oplevert. Mét ICP heeft iedereen in het bedrijf, en elke AI die meedenkt, één scherp beeld in zijn hoofd: dit is voor wie wij hier zijn, en dit is voor wie expliciet niet.
+*Waarom dit fundamenteel is.* Een bedrijf dat iedereen wil bedienen, bedient niemand. Zonder ICP zwabbert marketing tussen doelgroepen, valt content plat, sluiten verkoopgesprekken slecht aan op de werkelijke pijn en wordt elke klant even belangrijk behandeld terwijl 20 procent van de klanten 80 procent van de marge oplevert. Mét ICP heeft iedereen in het bedrijf, en elke AI die meedenkt, één scherp beeld in zijn hoofd: dit is voor wie wij hier zijn, en dit is voor wie expliciet niet.
 
 *Waarom de audit-drempel niet genoeg is.* SCALE-audit S4 stelt dat het ICP-bestand per scope minimaal 80 woorden moet bevatten met zowel een pijn- als een oplossing-beschrijving. Die drempel haal je in tien minuten met halve antwoorden, maar dan heb je geen werkbaar profiel. Deze skill mikt op een **rijk** document: 8 blokken met genoeg diepte dat marketing, sales en content er werkelijk op kunnen sturen, en dat je in een sales-gesprek binnen drie minuten weet of iemand wel of niet jouw klant is.
 

@@ -8,6 +8,7 @@ estimatedTime: "30 tot 50 minuten"
 version: "1.0.0"
 author: Upscailed
 license: MIT
+scaleFramework: true
 ---
 
 # SWOT Analyse

@@ -274,4 +274,4 @@ Logging:
 - **Nooit overschrijven** zonder bevestiging als er al een privacyverklaring bestaat.
 - **[VERIFICEREN] zichtbaar laten** voor velden die de vault niet kon invullen.
 - **Buiten-EU-verwerkers markeren.** Als een tool buiten de EU gevestigd is (Google, Stripe, OpenAI, etc.), altijd vermelden dat SCC's van toepassing zijn.
-- **Bijzondere persoonsgegevens signaleren.** Als het bedrijf gezondheids-, gelofs- of andere bijzondere gegevens verwerkt, direct waarschuwen dat aanvullende maatregelen vereist zijn.
+- **Bijzondere persoonsgegevens signaleren.** Als het bedrijf gezondheids-, geloofs- of andere bijzondere gegevens verwerkt, direct waarschuwen dat aanvullende maatregelen vereist zijn.

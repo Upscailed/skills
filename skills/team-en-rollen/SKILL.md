@@ -8,6 +8,7 @@ estimatedTime: "20 tot 45 minuten"
 version: "1.1.0"
 author: Upscailed
 license: MIT
+scaleFramework: true
 ---
 
 # Team en Rollen

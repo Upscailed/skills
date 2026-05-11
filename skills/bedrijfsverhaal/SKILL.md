@@ -8,6 +8,7 @@ estimatedTime: "30-45 minuten"
 version: "1.1.0"
 author: Upscailed
 license: MIT
+scaleFramework: true
 ---
 
 # Bedrijfsverhaal
@@ -289,7 +290,7 @@ Logging:
 
 ## Voorbeeld-output
 
-Zie [`Bedrijven/Upscailed/Directie/Playbook/Bedrijfsverhaal.md`](../../Directie/Playbook/Bedrijfsverhaal.md) — het bedrijfsverhaal van Upscailed, geschreven met deze skill als eerste live test-case op 2026-05-08.
+Zie als referentie-voorbeeld het Upscailed-bedrijfsverhaal (intern beschikbaar voor skill-bouwers), geschreven met deze skill als eerste live test-case op 2026-05-08.
 
 Wat dat voorbeeld goed laat zien:
 - Concrete data en namen (datum rebrand, naam Ramon, naam Siebren, locatie thuis-gym)

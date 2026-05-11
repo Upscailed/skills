@@ -8,6 +8,7 @@ estimatedTime: "45-60 minuten"
 version: "2.1.0"
 author: Upscailed
 license: MIT
+scaleFramework: true
 ---
 
 # Tone of Voice

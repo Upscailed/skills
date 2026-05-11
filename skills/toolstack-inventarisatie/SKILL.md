@@ -8,6 +8,7 @@ estimatedTime: "25 tot 45 minuten"
 version: "1.0.0"
 author: Upscailed
 license: MIT
+scaleFramework: true
 ---
 
 # Toolstack Inventarisatie

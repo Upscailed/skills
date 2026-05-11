@@ -17,7 +17,7 @@ scaleFramework: true
 
 Helpt een ondernemer om in 25 tot 45 minuten een volledig **marketing-data-opzetdocument** op te bouwen in één canoniek bestand: `{scope}/Marketing/Data-Setup.md`. Dit is SCALE-stap C1 (Collect) en de fundering waarop alle latere marketing-analyse, dashboards en geautomatiseerde rapportages rusten.
 
-*Waarom dit fundamenteel is.* Een marketing-data-opzet is geen rapport en geen dashboard. Het is de **bron-kaart** die voorschrijft welke cijfers worden gemeten, uit welke tool ze komen, hoe vaak ze worden opgehaald en waar ze landen. Zonder deze kaart heeft minstens vier latere SCALE-stappen niets concreets om op te bouwen:
+*Waarom dit fundamenteel is.* Een marketing-data-opzet is geen rapport en geen dashboard. Het is de **bron-kaart** die voorschrijft welke cijfers worden gemeten, uit welke tool ze komen, hoe vaak ze worden opgehaald en waar ze landen. Zonder deze kaart heeft vier latere SCALE-stappen niets concreets om op te bouwen:
 
 - **A1 (Analyze, Rapportage Builder)** — De rapportage-skill weet pas wat hij moet samenvatten als de bronnen zijn vastgelegd. Geen Data-Setup betekent dat A1 elke keer opnieuw moet uitvragen wat er gemeten wordt.
 - **A3 (Analyze, Daily Briefing)** — Een dagelijkse briefing met "bereik LinkedIn vandaag" werkt alleen als ergens vastligt dat LinkedIn-bereik dagelijks wordt opgehaald.

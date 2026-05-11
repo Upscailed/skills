@@ -246,3 +246,12 @@ Logging:
 - **Nooit overschrijven** zonder bevestiging als er al een AV bestaat.
 - **[VERIFICEREN] zichtbaar laten** in het document voor velden die de vault niet kon invullen.
 - **B2B-scope bewaken.** Als er signalen zijn dat het bedrijf ook aan consumenten levert, waarschuw dan dat aanvullende artikelen nodig zijn (herroepingsrecht, consumentenbescherming).
+
+## Gerelateerde skills
+
+Deze skill is onderdeel van de juridische laag van het SCALE-framework. Combineer met:
+
+- **`klantcontract-template` (J1)** — opdrachtbevestiging die naar deze AV verwijst per klantopdracht.
+- **`privacyverklaring` (J4)** — AVG-document dat samen met de AV op de website hoort; artikel "Gegevens & privacy" in de AV verwijst hiernaar.
+- **`verzekeringen-overzicht` (J5)** — overzicht van bedrijfsverzekeringen dat de aansprakelijkheidsclausule in de AV onderbouwt.
+- **`scale-audit`** — controleert of de J-laag compleet is; draai opnieuw na het opstellen van AV om de score op J3 bij te werken.

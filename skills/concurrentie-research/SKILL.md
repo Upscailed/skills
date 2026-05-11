@@ -9,6 +9,7 @@ estimatedTime: "20-40 minuten"
 version: "1.1.1"
 author: Upscailed
 license: MIT
+scaleFramework: true
 compatibility:
   required_tools: [WebSearch, WebFetch]
   note: "WebSearch en WebFetch zijn verplicht voor Stap 4 (live webresearch). Voeg deze toe aan de allowlist via /update-config als ze nog niet zijn toegestaan."

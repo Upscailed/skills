@@ -72,7 +72,7 @@ fi
 case "$CONVERTER" in
   chrome)
     "$CHROME_BIN" \
-      --headless=new \
+      --headless=old \
       --disable-gpu \
       --no-sandbox \
       --no-pdf-header-footer \

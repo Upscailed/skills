@@ -63,7 +63,7 @@ Bij twijfel: pas ⚠️ toe en motiveer in één zin waarom.
 - **Skill om gat te dichten**: handwerk
 
 ### S7. Bedrijfsverhaal / Origin Story
-- **Pad**: `{scope}/Directie/Playbook/Verhaal.md` of een sectie "Verhaal" of "Achtergrond" in `00 - Overzicht.md`
+- **Pad**: `{scope}/Directie/Playbook/Bedrijfsverhaal.md` of een sectie "Bedrijfsverhaal" of "Achtergrond" in `00 - Overzicht.md`
 - **Existence**: tekst bestaat
 - **Quality**: minimaal 150 woorden, vertelt waarom het bedrijf bestaat en hoe het is ontstaan
 - **Skill om gat te dichten**: handwerk
