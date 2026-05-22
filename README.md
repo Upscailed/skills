@@ -38,6 +38,7 @@ Daarna start je een nieuwe Claude Code sessie. De skill is direct beschikbaar wa
 | [tone-of-voice](skills/tone-of-voice/) | Communicatie | Bouwt in 10 stappen een compleet Tone of Voice document op |
 | [prompt-optimaliseerder](skills/prompt-optimaliseerder/) | Productiviteit | Herschrijft rommelige prompts naar gestructureerde, hoogwaardige prompts |
 | [feitencontrole](skills/feitencontrole/) | Research | Controleert systematisch elke feitelijke claim in een tekst en zoekt bronnen |
+| [mcp-tester](skills/mcp-tester/) | Bouwen | Test en valideert een MCP-server end-to-end (tools, resources, auth) via MCP Inspector |
 
 Bekijk alle skills met live preview en uitleg op [upscailed.nl/skills](https://upscailed.nl/skills).
 
