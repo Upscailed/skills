@@ -10,6 +10,23 @@ Nieuwste releases staan bovenaan. Per release: per skill de nieuwe versie + rede
 
 ---
 
+## 2026-07-02: Consolidatie naar 8 thema-skills (MAJOR)
+
+De 46 losse SCALE-framework skills zijn gebundeld naar 8 thema-skills: één per SCALE-laag en één per cross-cutting domein. Elke thema-skill (v1.0.0) heeft een router-SKILL.md (menu, triggers, werkwijze) en de volledige oorspronkelijke workflows als verbatim modules in `modules/`, met de bijbehorende templates in `references/`. Breaking: de oude skill-namen bestaan niet meer als losse mappen; installeer voortaan de thema-skill.
+
+| Nieuwe skill | Gebundelde skills (modules) |
+|---|---|
+| scale-structure | bedrijfsoverzicht, doelen-coach, tone-of-voice, icp, brand-guidelines, swot-analyse, bedrijfsverhaal, producten-en-pricing, klantreis, sop-interviewer, team-en-rollen, toolstack-inventarisatie |
+| scale-collect | marketing-data-setup, crm-setup, financiele-data-setup, klantfeedback-collector, website-analytics-setup, concurrentie-research, operationele-kpis |
+| scale-analyze | rapportage-builder, mission-control-builder, daily-briefing, beslissings-analyse, benchmarking |
+| scale-leverage | sop-automatiseren, auto-rapportage-setup, mailflow-setup, finance-automatisering |
+| scale-engineer | dashboard-bouwer, app-scoping, workflow-pipeline, klantportaal-scoping, kennisbank-organizer, skill-builder-coach |
+| scale-marketing | website-launch-check, social-presence-setup, content-roadmap, nieuwsbrief-setup |
+| scale-verkoop | salesproces-builder, opvolg-flow (producten-en-pricing leeft als module in scale-structure, met kruisverwijzing) |
+| scale-juridisch | kvk-administratie, btw-administratie, algemene-voorwaarden, privacyverklaring, klantcontract-template, verzekeringen-overzicht |
+
+Ongewijzigd als losse skills: scale-audit, os-builder, prompt-optimaliseerder, feitencontrole, mcp-integratie. Alle module-bodies zijn byte-identiek aan de oorspronkelijke SKILL.md-bodies (diff-geverifieerd); de evals-map van concurrentie-research is niet meeverhuisd en blijft in de git-historie.
+
 ## 2026-05-11 — Iteration 1 eval-fixes
 
 Tweede ronde kwaliteitstoets via de Anthropic skill-creator eval-flow: 88 agent-runs (with-skill + baseline per skill) op alle 44 SCALE-framework skills. Score-uitkomst: 16 🟢 / 25 🟡 / 3 🔴. Top patroon (in 28 skills): interview-flow zonder fallback voor autonome of fictieve-context runs. Drie 🔴 door scope/router mismatches.

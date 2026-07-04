@@ -20,7 +20,7 @@ git clone https://github.com/Upscailed/skills.git ~/upscailed-skills
 
 # Kopieer een specifieke skill naar je Claude Code skills-map
 mkdir -p ~/.claude/skills
-cp -r ~/upscailed-skills/skills/tone-of-voice ~/.claude/skills/
+cp -r ~/upscailed-skills/skills/scale-structure ~/.claude/skills/
 ```
 
 Of alle skills tegelijk:
@@ -33,9 +33,32 @@ Daarna start je een nieuwe Claude Code sessie. De skill is direct beschikbaar wa
 
 ## Beschikbare skills
 
+De SCALE-framework skills zijn gebundeld per thema: één skill per SCALE-laag plus één per cross-cutting domein. Elke thema-skill bevat een menu (router) en losse modules; de AI laadt alleen de module die je nodig hebt.
+
+### SCALE-framework (5 lagen)
+
+| Skill | Modules | Wat het doet |
+|---|---|---|
+| [scale-structure](skills/scale-structure/) | 12 | Het fundament: bedrijfsoverzicht, doelen, tone of voice, ICP, brand guidelines, SWOT, bedrijfsverhaal, producten en pricing, klantreis, SOP's, team en rollen, toolstack |
+| [scale-collect](skills/scale-collect/) | 7 | Datastromen op orde: marketing-data, CRM, financiële data, klantfeedback, website-analytics, concurrentie-research, operationele KPI's |
+| [scale-analyze](skills/scale-analyze/) | 5 | Van data naar inzicht: rapportages, Mission Control, daily briefing, beslissings-analyse, benchmarking |
+| [scale-leverage](skills/scale-leverage/) | 4 | Automatiseren: SOP's, auto-rapportages, mailflows, finance-automatisering |
+| [scale-engineer](skills/scale-engineer/) | 6 | Maatwerk bouwen: dashboards, app-scoping, workflow-pipelines, klantportalen, kennisbanken, eigen skills |
+
+### Cross-cutting domeinen (3)
+
+| Skill | Modules | Wat het doet |
+|---|---|---|
+| [scale-marketing](skills/scale-marketing/) | 4 | Zichtbaar en vindbaar: website-launch-check, social presence, content-roadmap, nieuwsbrief |
+| [scale-verkoop](skills/scale-verkoop/) | 2 | Voorspelbaar verkopen: salesproces en opvolg-flow (pricing leeft in scale-structure) |
+| [scale-juridisch](skills/scale-juridisch/) | 6 | Zakelijke basis: KvK, BTW, algemene voorwaarden, privacyverklaring, klantcontract, verzekeringen |
+
+### Losse skills
+
 | Skill | Categorie | Wat het doet |
 |---|---|---|
-| [tone-of-voice](skills/tone-of-voice/) | Communicatie | Bouwt in 10 stappen een compleet Tone of Voice document op |
+| [scale-audit](skills/scale-audit/) | Operations | Compleetheids-audit over alle 5 SCALE-lagen en 3 domeinen, met scores en prioriteiten |
+| [os-builder](skills/os-builder/) | Setup | Zet een Second Brain / Personal OS vault op |
 | [prompt-optimaliseerder](skills/prompt-optimaliseerder/) | Productiviteit | Herschrijft rommelige prompts naar gestructureerde, hoogwaardige prompts |
 | [feitencontrole](skills/feitencontrole/) | Research | Controleert systematisch elke feitelijke claim in een tekst en zoekt bronnen |
 | [mcp-integratie](skills/mcp-integratie/) | Bouwen | Complete AI-integratie van API tot werkende MCP+Claude-koppeling in één workflow, incl. Inspector-validatie |
@@ -47,6 +70,8 @@ Bekijk alle skills met live preview en uitleg op [upscailed.nl/skills](https://u
 ```
 skills/<naam>/
 ├── SKILL.md           ← hoofdbestand met instructies en frontmatter
+├── modules/           ← bij thema-skills: één workflow per module, on demand geladen
+├── references/        ← optionele templates en naslagbestanden
 ├── scripts/           ← optionele helper-scripts (Python, Bash)
 └── assets/            ← optionele bestanden (templates, voorbeelden)
 ```
